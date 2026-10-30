@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Report List | CampusGuardian</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="app">
+
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-logo">🛡️</div>
+      <div class="brand-name">CampusGuardian<small>SMART CAMPUS PLATFORM</small></div>
+    </div>
+    <div class="nav-label">Menu</div>
+    <ul class="nav">
+      <li><a href="index.html"><span class="ico">🏠</span>Home</a></li>
+      <li><a href="dashboard.html"><span class="ico">📊</span>Dashboard</a></li>
+      <li><a href="emergency.html"><span class="ico">🚨</span>Emergency Report</a></li>
+      <li><a href="complaint.html"><span class="ico">📝</span>Complaint Form</a></li>
+      <li><a href="reports.html" class="active"><span class="ico">📋</span>Report List</a></li>
+      <li><a href="profile.html"><span class="ico">👤</span>Student Profile</a></li>
+    </ul>
+    <div class="nav-label">Account</div>
+    <ul class="nav">
+      <li><a href="login.html"><span class="ico">🔐</span>Login</a></li>
+      <li><a href="register.html"><span class="ico">✨</span>Register</a></li>
+    </ul>
+    <div class="sidebar-footer">© 2026 CampusGuardian</div>
+  </aside>
+
+  <main class="main">
+    <div class="topbar">
+      <div>
+        <h1>Report List</h1>
+        <p>Check the status of all your reports</p>
+      </div>
+      <div class="actions">
+        <div class="search">🔍 <input type="text" placeholder="Search by ID or type..."></div>
+        <a href="emergency.html" class="btn btn-primary">+ New Report</a>
+      </div>
+    </div>
+
+    <!-- Filter chips -->
+    <div style="display:flex; gap:10px; margin-bottom:20px; flex-wrap:wrap">
+      <span class="pill info">All (8)</span>
+      <span class="status open">Open (3)</span>
+      <span class="status progress">In Progress (2)</span>
+      <span class="status resolved">Resolved (3)</span>
+    </div>
+
+    <div class="card">
+      <div class="table-wrap">
+        <table class="table">
+          <thead>
+            <tr><th>ID</th><th>Type</th><th>Location</th><th>Date</th><th>Priority</th><th>Status</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><b>#CG-1021</b></td><td>🔫 Armed Robbery</td><td>Main Gate</td><td>31 Oct, 2026</td><td><span class="pill down">High</span></td><td><span class="status open">Open</span></td></tr>
+            <tr><td><b>#CG-1020</b></td><td>🗣️ Bullying</td><td>Library</td><td>30 Oct, 2026</td><td><span class="pill info">Medium</span></td><td><span class="status progress">In Progress</span></td></tr>
+            <tr><td><b>#CG-1019</b></td><td>🧱 Vandalism</td><td>Block B</td><td>29 Oct, 2026</td><td><span class="pill info">Medium</span></td><td><span class="status resolved">Resolved</span></td></tr>
+            <tr><td><b>#CG-1018</b></td><td>🗣️ Bullying</td><td>Canteen</td><td>28 Oct, 2026</td><td><span class="pill info">Medium</span></td><td><span class="status resolved">Resolved</span></td></tr>
+            <tr><td><b>#CG-1017</b></td><td>🔥 Fire</td><td>Lab 3</td><td>26 Oct, 2026</td><td><span class="pill down">High</span></td><td><span class="status open">Open</span></td></tr>
+            <tr><td><b>#CG-1016</b></td><td>🩹 Medical</td><td>Sports Ground</td><td>25 Oct, 2026</td><td><span class="pill up">Low</span></td><td><span class="status resolved">Resolved</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+</div>
+</body>
+</html>
