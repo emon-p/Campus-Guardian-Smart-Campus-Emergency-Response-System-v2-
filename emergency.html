@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Emergency Report | CampusGuardian</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="app">
+
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-logo">🛡️</div>
+      <div class="brand-name">CampusGuardian<small>SMART CAMPUS PLATFORM</small></div>
+    </div>
+    <div class="nav-label">Menu</div>
+    <ul class="nav">
+      <li><a href="index.html"><span class="ico">🏠</span>Home</a></li>
+      <li><a href="dashboard.html"><span class="ico">📊</span>Dashboard</a></li>
+      <li><a href="emergency.html" class="active"><span class="ico">🚨</span>Emergency Report</a></li>
+      <li><a href="complaint.html"><span class="ico">📝</span>Complaint Form</a></li>
+      <li><a href="reports.html"><span class="ico">📋</span>Report List</a></li>
+      <li><a href="profile.html"><span class="ico">👤</span>Student Profile</a></li>
+    </ul>
+    <div class="nav-label">Account</div>
+    <ul class="nav">
+      <li><a href="login.html"><span class="ico">🔐</span>Login</a></li>
+      <li><a href="register.html"><span class="ico">✨</span>Register</a></li>
+    </ul>
+    <div class="sidebar-footer">© 2026 CampusGuardian</div>
+  </aside>
+
+  <main class="main">
+    <div class="topbar">
+      <div>
+        <h1>Emergency Report</h1>
+        <p>Report urgent incidents quickly</p>
+      </div>
+      <div class="actions">
+        <div class="avatar">S</div>
+      </div>
+    </div>
+
+    <!-- Hero -->
+    <div class="emergency-hero">
+      <div>
+        <h2>Are you in an emergency?</h2>
+        <p>Click the SOS button to instantly alert the security team.</p>
+        <button class="btn" style="background:#fff; color:var(--red); margin-top:16px; height:48px">🚨 Send SOS</button>
+      </div>
+      <div class="bell-big">🔔</div>
+    </div>
+
+    <!-- Form -->
+    <div class="grid grid-2 section">
+      <div class="card">
+        <div class="card-head"><div><h3>Choose incident type</h3><p>Select one option</p></div></div>
+        <div class="type-grid">
+          <button class="type-card selected"><div class="t-icon">🔫</div><b>Armed Robbery</b><span>Robbery or theft</span></button>
+          <button class="type-card"><div class="t-icon">🗣️</div><b>Bullying</b><span>Harassment</span></button>
+          <button class="type-card"><div class="t-icon">🧱</div><b>Vandalism</b><span>Property damage</span></button>
+          <button class="type-card"><div class="t-icon">🔥</div><b>Fire</b><span>Fire outbreak</span></button>
+          <button class="type-card"><div class="t-icon">🩹</div><b>Medical</b><span>Illness or injury</span></button>
+          <button class="type-card"><div class="t-icon">❓</div><b>Other</b><span>Anything else</span></button>
+        </div>
+
+        <div class="section">
+          <div class="form-group">
+            <label>Incident description</label>
+            <textarea class="form-control" placeholder="Briefly describe what happened..."></textarea>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Location</label>
+              <input type="text" class="form-control" placeholder="e.g. Main Gate, Library">
+            </div>
+            <div class="form-group">
+              <label>Time</label>
+              <input type="datetime-local" class="form-control">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Photo/Video (optional)</label>
+            <input type="file" class="form-control">
+          </div>
+          <label class="check" style="margin-bottom:18px"><input type="checkbox"> Keep my name anonymous</label>
+          <button class="btn btn-danger btn-block">🚨 Submit Report</button>
+        </div>
+      </div>
+
+      <!-- Side info -->
+      <div>
+        <div class="card" style="margin-bottom:20px">
+          <div class="card-head"><h3>Emergency Numbers</h3></div>
+          <div class="list">
+            <div class="list-item"><div class="list-main"><div class="list-icon" style="background:var(--primary-soft)">📞</div><div><div class="list-title">Campus Control</div><div class="list-sub">+880 XXXX-XXXXXX</div></div></div></div>
+            <div class="list-item"><div class="list-main"><div class="list-icon" style="background:var(--red-soft)">🚑</div><div><div class="list-title">Medical Center</div><div class="list-sub">+880 XXXX-XXXXXX</div></div></div></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-head"><h3>Your Location</h3></div>
+          <div class="map-placeholder">📍</div>
+          <p class="hint" style="margin-top:10px">Map integration will be added in a later step.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+</body>
+</html>
