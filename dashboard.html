@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard | CampusGuardian</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="app">
+
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-logo">🛡️</div>
+      <div class="brand-name">CampusGuardian<small>SMART CAMPUS PLATFORM</small></div>
+    </div>
+    <div class="nav-label">Menu</div>
+    <ul class="nav">
+      <li><a href="index.html"><span class="ico">🏠</span>Home</a></li>
+      <li><a href="dashboard.html" class="active"><span class="ico">📊</span>Dashboard</a></li>
+      <li><a href="emergency.html"><span class="ico">🚨</span>Emergency Report</a></li>
+      <li><a href="complaint.html"><span class="ico">📝</span>Complaint Form</a></li>
+      <li><a href="reports.html"><span class="ico">📋</span>Report List</a></li>
+      <li><a href="profile.html"><span class="ico">👤</span>Student Profile</a></li>
+    </ul>
+    <div class="nav-label">Account</div>
+    <ul class="nav">
+      <li><a href="login.html"><span class="ico">🔐</span>Login</a></li>
+      <li><a href="register.html"><span class="ico">✨</span>Register</a></li>
+    </ul>
+    <div class="sidebar-footer">© 2026 CampusGuardian</div>
+  </aside>
+
+  <main class="main">
+    <div class="topbar">
+      <div>
+        <h1>Dashboard</h1>
+        <p>Saturday, 31 October 2026</p>
+      </div>
+      <div class="actions">
+        <div class="search">🔍 <input type="text" placeholder="Search..."></div>
+        <div class="icon-btn">🔔<span class="dot"></span></div>
+        <div class="avatar">S</div>
+      </div>
+    </div>
+
+    <!-- Stat cards -->
+    <div class="grid grid-4">
+      <div class="card">
+        <div class="stat-top">
+          <div class="stat-icon">🚨</div>
+          <span class="pill down">↓ -12%</span>
+        </div>
+        <div class="stat-label">Open Incidents</div>
+        <div class="stat-value">24</div>
+        <div class="stat-foot">Compared to last week</div>
+      </div>
+      <div class="card">
+        <div class="stat-top">
+          <div class="stat-icon">✅</div>
+          <span class="pill up">↑ +8%</span>
+        </div>
+        <div class="stat-label">Resolved Reports</div>
+        <div class="stat-value">158</div>
+        <div class="stat-foot">This month</div>
+      </div>
+      <div class="card">
+        <div class="stat-top">
+          <div class="stat-icon">👥</div>
+          <span class="pill up">↑ +1.2%</span>
+        </div>
+        <div class="stat-label">Active Students</div>
+        <div class="stat-value">12,568</div>
+        <div class="stat-foot">+100 this month</div>
+      </div>
+      <div class="card">
+        <div class="stat-top">
+          <div class="stat-icon">🔔</div>
+          <span class="pill info">Live</span>
+        </div>
+        <div class="stat-label">Active Alerts</div>
+        <div class="stat-value">3</div>
+        <div class="stat-foot">Emergency warnings</div>
+      </div>
+    </div>
+
+    <!-- Charts row -->
+    <div class="grid grid-2 section">
+      <div class="card">
+        <div class="card-head">
+          <div><h3>Weekly Reports</h3><p>Number of incidents per day</p></div>
+          <span class="pill info">This Week</span>
+        </div>
+        <div class="bars">
+          <div class="bar-group"><div class="bar-wrap"><div class="bar blue" style="height:60%"></div><div class="bar green" style="height:40%"></div></div><div class="bar-day">Sat</div></div>
+          <div class="bar-group"><div class="bar-wrap"><div class="bar blue" style="height:45%"></div><div class="bar green" style="height:30%"></div></div><div class="bar-day">Sun</div></div>
+          <div class="bar-group"><div class="bar-wrap"><div class="bar blue" style="height:80%"></div><div class="bar green" style="height:55%"></div></div><div class="bar-day active">Mon</div></div>
+          <div class="bar-group"><div class="bar-wrap"><div class="bar blue" style="height:65%"></div><div class="bar green" style="height:48%"></div></div><div class="bar-day">Tue</div></div>
+          <div class="bar-group"><div class="bar-wrap"><div class="bar blue" style="height:35%"></div><div class="bar green" style="height:25%"></div></div><div class="bar-day">Wed</div></div>
+        </div>
+        <div class="legend" style="flex-direction:row; margin-top:12px; gap:20px">
+          <div class="legend-item"><div class="l"><span class="dot-color" style="background:var(--primary)"></span>Reported</div></div>
+          <div class="legend-item"><div class="l"><span class="dot-color" style="background:var(--green)"></span>Resolved</div></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <div><h3>Incident Types</h3><p>Breakdown by type</p></div>
+        </div>
+        <div class="donut-wrap">
+          <div class="donut" style="background: conic-gradient(var(--primary) 0 45%, var(--green) 45% 75%, var(--yellow) 75% 100%)">
+            <div class="donut-inner"><div><b>24</b><span>Total</span></div></div>
+          </div>
+          <div class="legend">
+            <div class="legend-item"><div class="l"><span class="dot-color" style="background:var(--primary)"></span>Bullying</div><b>45%</b></div>
+            <div class="legend-item"><div class="l"><span class="dot-color" style="background:var(--green)"></span>Vandalism</div><b>30%</b></div>
+            <div class="legend-item"><div class="l"><span class="dot-color" style="background:var(--yellow)"></span>Robbery</div><b>25%</b></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Table + activity -->
+    <div class="grid grid-2 section">
+      <div class="card">
+        <div class="card-head">
+          <div><h3>Recent Reports</h3><p>Latest submitted reports</p></div>
+          <a href="reports.html" class="card-link">View all →</a>
+        </div>
+        <div class="table-wrap">
+          <table class="table">
+            <thead><tr><th>ID</th><th>Type</th><th>Location</th><th>Status</th></tr></thead>
+            <tbody>
+              <tr><td>#CG-1021</td><td>Armed Robbery</td><td>Main Gate</td><td><span class="status open">Open</span></td></tr>
+              <tr><td>#CG-1020</td><td>Bullying</td><td>Library</td><td><span class="status progress">In Progress</span></td></tr>
+              <tr><td>#CG-1019</td><td>Vandalism</td><td>Block B</td><td><span class="status resolved">Resolved</span></td></tr>
+              <tr><td>#CG-1018</td><td>Bullying</td><td>Canteen</td><td><span class="status resolved">Resolved</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><div><h3>Recent Activity</h3><p>Latest actions</p></div></div>
+        <div class="list">
+          <div class="list-item">
+            <div class="list-main"><div class="list-icon" style="background:var(--red-soft)">🚨</div><div><div class="list-title">New emergency report</div><div class="list-sub">Main Gate</div></div></div>
+            <span class="muted-time">10 min ago</span>
+          </div>
+          <div class="list-item">
+            <div class="list-main"><div class="list-icon" style="background:var(--green-soft)">✅</div><div><div class="list-title">Report resolved</div><div class="list-sub">#CG-1019</div></div></div>
+            <span class="muted-time">1 hour ago</span>
+          </div>
+          <div class="list-item">
+            <div class="list-main"><div class="list-icon" style="background:var(--primary-soft)">👤</div><div><div class="list-title">New student registered</div><div class="list-sub">Computer Science</div></div></div>
+            <span class="muted-time">5 hours ago</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+</body>
+</html>
