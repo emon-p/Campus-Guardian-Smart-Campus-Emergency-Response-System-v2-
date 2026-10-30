@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | CampusGuardian</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="auth-page">
+  <div class="auth-card">
+    <div class="auth-brand">
+      <div class="brand-logo">🛡️</div>
+      <div class="brand-name" style="color:var(--text)">CampusGuardian<small style="color:var(--muted)">SMART CAMPUS PLATFORM</small></div>
+    </div>
+
+    <h2>Welcome 👋</h2>
+    <p>Log in to your account</p>
+
+    <form onsubmit="return false;">
+      <div class="form-group">
+        <label>Email or Student ID</label>
+        <input type="text" class="form-control" placeholder="sharif@campus.edu">
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" class="form-control" placeholder="••••••••">
+      </div>
+
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:22px">
+        <label class="check"><input type="checkbox"> Remember me</label>
+        <a href="#" class="card-link">Forgot password?</a>
+      </div>
+
+      <button type="submit" class="btn btn-primary btn-block">Log In</button>
+    </form>
+
+    <div class="auth-foot">Don't have an account? <a href="register.html">Register</a></div>
+  </div>
+</div>
+</body>
+</html>
