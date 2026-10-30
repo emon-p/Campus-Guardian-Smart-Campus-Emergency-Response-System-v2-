@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register | CampusGuardian</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="auth-page">
+  <div class="auth-card">
+    <div class="auth-brand">
+      <div class="brand-logo">🛡️</div>
+      <div class="brand-name" style="color:var(--text)">CampusGuardian<small style="color:var(--muted)">SMART CAMPUS PLATFORM</small></div>
+    </div>
+
+    <h2>Create Account</h2>
+    <p>Fill in your details to register</p>
+
+    <form onsubmit="return false;">
+      <div class="form-group">
+        <label>Full name</label>
+        <input type="text" class="form-control" placeholder="Your name">
+      </div>
+      <div class="form-group">
+        <label>Student ID</label>
+        <input type="text" class="form-control" placeholder="e.g. 2026-CSE-001">
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" class="form-control" placeholder="you@campus.edu">
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" class="form-control" placeholder="••••••••">
+        </div>
+        <div class="form-group">
+          <label>Confirm password</label>
+          <input type="password" class="form-control" placeholder="••••••••">
+        </div>
+      </div>
+
+      <label class="check" style="margin-bottom:22px"><input type="checkbox"> I agree to the terms and conditions</label>
+      <button type="submit" class="btn btn-primary btn-block">Register</button>
+    </form>
+
+    <div class="auth-foot">Already have an account? <a href="login.html">Log in</a></div>
+  </div>
+</div>
+</body>
+</html>
