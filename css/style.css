@@ -308,6 +308,67 @@ textarea.form-control { min-height: 120px; resize: vertical; }
   background: repeating-linear-gradient(45deg, #eef4ff, #eef4ff 12px, #f8fbff 12px, #f8fbff 24px);
   display: grid; place-items: center; font-size: 42px; color: var(--primary);
 }
+/* ---------- 3D campus illustration (CSS only) ---------- */
+.campus-3d {
+  position: relative; height: 300px; margin-top: 14px; border-radius: 14px;
+  background: linear-gradient(180deg, #dbeafe 0%, #f5f9ff 100%);
+  perspective: 800px; overflow: hidden;
+  display: grid; place-items: center;
+}
+.campus-title {
+  position: absolute; top: 12px; left: 14px; z-index: 2;
+  font-size: 13px; font-weight: 700; color: var(--text);
+  background: rgba(255, 255, 255, .85); padding: 4px 10px; border-radius: 8px;
+}
+.campus-plane {
+  position: relative; width: 300px; height: 220px;
+  transform: rotateX(55deg) rotateZ(-35deg);
+  transform-style: preserve-3d;
+  transition: transform .6s ease;
+}
+.campus-plane:hover { transform: rotateX(45deg) rotateZ(-25deg); }
+
+.campus-ground {
+  position: absolute; inset: 0; border-radius: 16px;
+  background: #cfe9cf;
+  box-shadow: 0 6px 0 #9cc79c, 0 12px 0 #7fb07f;
+}
+.campus-road { position: absolute; background: #d9dde3; border-radius: 4px; }
+.road-h { left: 0; right: 0; top: 100px; height: 14px; }
+.road-v { top: 0; bottom: 0; left: 140px; width: 14px; }
+
+/* buildings: flat roof tile + stacked box-shadow walls = 3D height */
+.b {
+  position: absolute; border-radius: 3px; background: var(--roof);
+  box-shadow:
+    0 2px 0 var(--wall), 0 4px 0 var(--wall), 0 6px 0 var(--wall),
+    0 8px 0 var(--wall), 0 10px 0 var(--wall), 0 12px 0 var(--wall-dark),
+    0 14px 0 var(--wall-dark), 0 16px 0 var(--wall-dark);
+}
+.academic { left: 30px;  top: 30px;  width: 90px; height: 60px; --roof: #ffffff; --wall: #d6dbe3; --wall-dark: #aeb6c2; }
+.library  { left: 170px; top: 25px;  width: 70px; height: 50px; --roof: #ffe2b8; --wall: #f2b97a; --wall-dark: #d99a55; }
+.admin    { left: 30px;  top: 130px; width: 70px; height: 60px; --roof: #cfe0ff; --wall: #8fb3f0; --wall-dark: #6b93d6; }
+.hostel   { left: 180px; top: 150px; width: 90px; height: 50px; --roof: #ffd6e0; --wall: #f3a6b8; --wall-dark: #d97e93; }
+.medical  { left: 255px; top: 25px;  width: 40px; height: 50px; --roof: #ffd4d4; --wall: #f08a8a; --wall-dark: #d36262; }
+
+/* trees */
+.tree {
+  position: absolute; width: 14px; height: 14px; border-radius: 50%;
+  background: #5fb36a;
+  box-shadow: 0 3px 0 #3e8a4c, 0 5px 0 #2f6e3b;
+}
+
+/* main gate */
+.gate {
+  position: absolute; left: 120px; top: 212px; width: 44px; height: 8px;
+  background: #334155; border-radius: 3px;
+}
+
+.campus-legend { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+.campus-legend span {
+  font-size: 12px; font-weight: 600; padding: 6px 10px;
+  border-radius: 999px; background: var(--primary-soft); color: var(--primary);
+}
 
 /* ---------- Responsive ---------- */
 @media (max-width: 1100px) {
