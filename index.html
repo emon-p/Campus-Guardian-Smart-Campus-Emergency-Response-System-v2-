@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home | CampusGuardian</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="app">
+
+  <!-- ===== Sidebar ===== -->
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-logo">🛡️</div>
+      <div class="brand-name">CampusGuardian<small>SMART CAMPUS PLATFORM</small></div>
+    </div>
+
+    <div class="nav-label">Menu</div>
+    <ul class="nav">
+      <li><a href="index.html" class="active"><span class="ico">🏠</span>Home</a></li>
+      <li><a href="dashboard.html"><span class="ico">📊</span>Dashboard</a></li>
+      <li><a href="emergency.html"><span class="ico">🚨</span>Emergency Report</a></li>
+      <li><a href="complaint.html"><span class="ico">📝</span>Complaint Form</a></li>
+      <li><a href="reports.html"><span class="ico">📋</span>Report List</a></li>
+      <li><a href="profile.html"><span class="ico">👤</span>Student Profile</a></li>
+    </ul>
+
+    <div class="nav-label">Account</div>
+    <ul class="nav">
+      <li><a href="login.html"><span class="ico">🔐</span>Login</a></li>
+      <li><a href="register.html"><span class="ico">✨</span>Register</a></li>
+    </ul>
+
+    <div class="sidebar-footer">© 2026 CampusGuardian</div>
+  </aside>
+
+  <!-- ===== Main ===== -->
+  <main class="main">
+    <div class="topbar">
+      <div>
+        <h1>Campus Safety 👋</h1>
+        <p>Campus safety, one click away</p>
+      </div>
+      <div class="actions">
+        <div class="search">🔍 <input type="text" placeholder="Search..."></div>
+        <button class="panic-btn">🚨 Panic</button>
+        <div class="icon-btn">🔔<span class="dot"></span></div>
+        <div class="avatar">S</div>
+      </div>
+    </div>
+
+    <!-- Safety panels -->
+    <div class="safety-grid">
+
+      <!-- Report an incident -->
+      <div class="card">
+        <div class="card-head"><h3>Report an Incident</h3></div>
+        <p class="list-sub" style="margin-bottom:14px">Report any campus incident for a quick response.</p>
+        <div class="list">
+          <a href="emergency.html" class="list-item">
+            <div class="list-main">
+              <div class="list-icon" style="background:var(--red-soft)">🔫</div>
+              <div><div class="list-title">Armed Robbery</div><div class="list-sub">Were you, or did you witness a robbery?</div></div>
+            </div>
+          </a>
+          <a href="complaint.html" class="list-item">
+            <div class="list-main">
+              <div class="list-icon" style="background:var(--yellow-soft)">🗣️</div>
+              <div><div class="list-title">Bullying</div><div class="list-sub">Were you verbally harassed?</div></div>
+            </div>
+          </a>
+          <a href="complaint.html" class="list-item">
+            <div class="list-main">
+              <div class="list-icon" style="background:var(--primary-soft)">🧱</div>
+              <div><div class="list-title">Vandalism</div><div class="list-sub">Did you witness any property damage?</div></div>
+            </div>
+          </a>
+        </div>
+        <div style="text-align:center; margin-top:18px; font-size:52px">📱</div>
+      </div>
+
+      <!-- Emergency alerts + navigation -->
+      <div>
+        <div class="card" style="margin-bottom:20px">
+          <div class="card-head"><h3>View Emergency Alerts</h3></div>
+          <p class="list-sub">Get real-time updates on critical situations.</p>
+          <div style="text-align:center; font-size:72px; margin-top:10px">🔔</div>
+        </div>
+
+        <div class="card">
+          <div class="card-head"><h3>Campus Navigation</h3></div>
+          <p class="list-sub">View the location of campus buildings and safety resources.</p>
+          <div class="map-placeholder">🗺️</div>
+        </div>
+      </div>
+
+      <!-- Safety resources -->
+      <div class="card">
+        <div class="card-head"><h3>Safety Resources</h3></div>
+        <p class="list-sub" style="margin-bottom:14px">Important safety information and contacts.</p>
+        <div class="list">
+          <div class="list-item">
+            <div class="list-main">
+              <div class="list-icon" style="background:var(--primary-soft)">📞</div>
+              <div><div class="list-title">Campus Control</div><div class="list-sub">Emergency assistance: +880 XXXX-XXXXXX</div></div>
+            </div>
+          </div>
+          <div class="list-item">
+            <div class="list-main">
+              <div class="list-icon" style="background:var(--green-soft)">📘</div>
+              <div><div class="list-title">Emergency Procedures</div><div class="list-sub">Learn how to respond in an emergency.</div></div>
+            </div>
+          </div>
+          <div class="list-item">
+            <div class="list-main">
+              <div class="list-icon" style="background:var(--yellow-soft)">🕵️</div>
+              <div><div class="list-title">Integrity Hotline</div><div class="list-sub">For improper or unethical conduct: +880 XXXX-XXXXXX</div></div>
+            </div>
+          </div>
+        </div>
+        <div style="text-align:center; margin-top:18px; font-size:52px">🤝</div>
+      </div>
+
+    </div>
+  </main>
+</div>
+</body>
+</html>
