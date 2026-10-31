@@ -127,3 +127,56 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+// ===== Step 5: Emergency report submit simulation =====
+document.addEventListener('DOMContentLoaded', () => {
+  const submitBtn = document.querySelector('.btn-danger.btn-block');
+  const sosBtn = document.querySelector('.emergency-hero .btn');
+  if (!submitBtn) return; // Emergency report form not present on this page
+
+  // Report ID generation using localStorage
+  function makeReportId() {
+    const last = parseInt(localStorage.getItem('cg_last_id') || '1020', 10);
+    const next = last + 1;
+    localStorage.setItem('cg_last_id', next);
+    return '#CG-' + next;
+  }
+
+  function submitReport(source) {
+    const selected = document.querySelector('.type-card.selected');
+    const type = selected ? selected.querySelector('b').textContent : 'Unknown';
+    const location = document.querySelector('input[placeholder^="e.g. Main Gate"]');
+    const place = location ? location.value.trim() : '';
+
+    // Validate location for form submission
+    if (source === 'form' && place === '') {
+      alert('Please enter the location of the incident.');
+      return;
+    }
+
+    const id = makeReportId();
+    alert(
+      'Report submitted successfully!\n\n' +
+      'Report ID: ' + id + '\n' +
+      'Type: ' + type + '\n' +
+      'Location: ' + (place || 'Not specified') + '\n\n' +
+      'Security team has been notified.'
+    );
+
+    // Reset form fields only if the submission was from the form
+    if (source === 'form') {
+      document.querySelector('textarea').value = '';
+      location.value = '';
+    }
+  }
+
+  submitBtn.addEventListener('click', () => submitReport('form'));
+
+  if (sosBtn) {
+    sosBtn.addEventListener('click', () => {
+      if (confirm('Send an SOS alert to campus security now?')) {
+        submitReport('sos');
+      }
+    });
+  }
+});
+
