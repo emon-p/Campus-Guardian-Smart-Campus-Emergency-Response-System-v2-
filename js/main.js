@@ -180,3 +180,49 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
+// ===== Step 6: Report List filter and search =====
+document.addEventListener('DOMContentLoaded', () => {
+  const table = document.querySelector('.table');
+  if (!table) return; // Report List not present on this page
+
+  const rows = table.querySelectorAll('tbody tr');
+  const chips = document.querySelectorAll('.chip');
+  const searchInput = document.querySelector('.search input');
+
+  let currentFilter = 'All';
+  let currentQuery = '';
+
+  // Get the status text of a row
+  function rowStatus(row) {
+    return row.querySelector('.status').textContent.trim();
+  }
+
+  // Filter and search together
+  function applyFilters() {
+    rows.forEach(row => {
+      const matchStatus = currentFilter === 'All' || rowStatus(row) === currentFilter;
+      const text = row.textContent.toLowerCase();
+      const matchSearch = text.includes(currentQuery);
+      row.classList.toggle('hidden', !(matchStatus && matchSearch));
+    });
+  }
+
+  // Chip click
+  chips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      chips.forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      currentFilter = chip.dataset.filter;
+      applyFilters();
+    });
+  });
+
+  // Search typing
+  if (searchInput) {
+    searchInput.addEventListener('input', () => {
+      currentQuery = searchInput.value.trim().toLowerCase();
+      applyFilters();
+    });
+  }
+});
+

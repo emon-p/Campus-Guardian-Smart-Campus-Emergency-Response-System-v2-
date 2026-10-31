@@ -390,6 +390,15 @@ textarea.form-control { min-height: 120px; resize: vertical; }
   color: var(--red); font-size: 12px; font-weight: 600; margin-top: 4px;
 }
 
+/* ---------- Filter chips ---------- */
+.chip {
+  border: 1px solid var(--border); background: #fff; color: var(--text);
+  padding: 8px 14px; border-radius: 999px; font-weight: 600; cursor: pointer;
+}
+.chip.active { background: var(--primary); color: #fff; border-color: var(--primary); }
+.table tr.hidden { display: none; }
+
+
 /* ---------- Responsive ---------- */
 @media (max-width: 1100px) {
   .grid-4 { grid-template-columns: repeat(2, 1fr); }
