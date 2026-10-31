@@ -399,6 +399,13 @@ textarea.form-control { min-height: 120px; resize: vertical; }
 .table tr.hidden { display: none; }
 
 
+/* ---------- Auth messages ---------- */
+.auth-msg {
+  padding: 10px 14px; border-radius: 10px; font-size: 14px; font-weight: 600; margin-bottom: 16px;
+}
+.auth-msg.ok { background: var(--green-soft); color: var(--green); }
+.auth-msg.err { background: var(--red-soft); color: var(--red); }
+
 /* ---------- Responsive ---------- */
 @media (max-width: 1100px) {
   .grid-4 { grid-template-columns: repeat(2, 1fr); }

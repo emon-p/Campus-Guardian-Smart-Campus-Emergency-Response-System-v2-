@@ -268,3 +268,64 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+// ===== Step 8: Login and Register validation =====
+document.addEventListener('DOMContentLoaded', () => {
+  const authForm = document.querySelector('.auth-card form');
+  if (!authForm) return; // Login/Register form not present on this page
+
+  const isRegister = window.location.pathname.includes('register');
+
+  function showMessage(text, ok) {
+    let box = document.querySelector('.auth-msg');
+    if (!box) {
+      box = document.createElement('div');
+      box.className = 'auth-msg';
+      authForm.prepend(box);
+    }
+    box.textContent = text;
+    box.className = 'auth-msg ' + (ok ? 'ok' : 'err');
+  }
+
+  authForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const inputs = authForm.querySelectorAll('input');
+    const checkbox = authForm.querySelector('input[type="checkbox"]');
+
+    if (!isRegister) {
+      // ---- Login ----
+      const id = inputs[0].value.trim();
+      const password = inputs[1].value;
+
+      if (id === '') return showMessage('Please enter your email or Student ID.', false);
+      if (password.length < 6) return showMessage('Password must be at least 6 characters.', false);
+
+      showMessage('Login successful! (Backend will be added later)', true);
+    } else {
+      // ---- Register ----
+      const name = inputs[0].value.trim();
+      const studentId = inputs[1].value.trim();
+      const email = inputs[2].value.trim();
+      const pass = inputs[3].value;
+      const confirm = inputs[4].value;
+
+      if (name === '' || studentId === '' || email === '') {
+        return showMessage('Please fill in all fields.', false);
+      }
+      if (!/^\S+@\S+\.\S+$/.test(email)) {
+        return showMessage('Please enter a valid email address.', false);
+      }
+      if (pass.length < 6) {
+        return showMessage('Password must be at least 6 characters.', false);
+      }
+      if (pass !== confirm) {
+        return showMessage('Passwords do not match.', false);
+      }
+      if (!checkbox.checked) {
+        return showMessage('Please accept the terms and conditions.', false);
+      }
+
+      showMessage('Registration successful! (Backend will be added later)', true);
+      authForm.reset();
+    }
+  });
+});
