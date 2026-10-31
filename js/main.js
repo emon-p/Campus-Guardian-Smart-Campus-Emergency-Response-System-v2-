@@ -47,3 +47,16 @@ document.addEventListener('DOMContentLoaded', () => {
     alert('Alert sent to campus security. Stay safe!'); 
   });
 });
+
+// ===== Step 3: Select one emergency type at a time =====
+document.addEventListener('DOMContentLoaded', () => {
+  const typeCards = document.querySelectorAll('.type-card');
+  if (typeCards.length === 0) return; 
+
+  typeCards.forEach(card => {
+    card.addEventListener('click', () => {
+      typeCards.forEach(c => c.classList.remove('selected'));
+      card.classList.add('selected');
+    });
+  });
+});

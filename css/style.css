@@ -384,6 +384,8 @@ textarea.form-control { min-height: 120px; resize: vertical; }
 .panic-modal p { color: var(--muted); font-size: 14px; margin-bottom: 22px; }
 .panic-actions { display: flex; gap: 12px; }
 .panic-actions .btn { flex: 1; }
+
+
 /* ---------- Responsive ---------- */
 @media (max-width: 1100px) {
   .grid-4 { grid-template-columns: repeat(2, 1fr); }
