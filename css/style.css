@@ -406,6 +406,16 @@ textarea.form-control { min-height: 120px; resize: vertical; }
 .auth-msg.ok { background: var(--green-soft); color: var(--green); }
 .auth-msg.err { background: var(--red-soft); color: var(--red); }
 
+/* ---------- Building info ---------- */
+.building-info {
+  margin-top: 12px; padding: 12px 14px; border-radius: 12px;
+  background: var(--primary-soft); font-size: 14px;
+}
+.building-info b { display: block; margin-bottom: 4px; color: var(--primary); }
+.building-info p { color: var(--muted); }
+
+.b.picked { filter: brightness(1.15); }
+
 /* ---------- Responsive ---------- */
 @media (max-width: 1100px) {
   .grid-4 { grid-template-columns: repeat(2, 1fr); }

@@ -329,3 +329,24 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
+
+// ===== Step 9: Click a 3D building to show its info =====
+document.addEventListener('DOMContentLoaded', () => {
+  const buildings = document.querySelectorAll('.campus-plane .b');
+  const info = document.getElementById('buildingInfo');
+  if (buildings.length === 0 || !info) return;
+
+  buildings.forEach(building => {
+    building.style.cursor = 'pointer';
+
+    building.addEventListener('click', () => {
+      // Remove 'picked' class from all buildings and add to the clicked one
+      buildings.forEach(b => b.classList.remove('picked'));
+      building.classList.add('picked');
+
+      info.innerHTML =
+        '<b>' + building.dataset.name + '</b>' +
+        '<p>' + building.dataset.info + '</p>';
+    });
+  });
+});
