@@ -226,3 +226,45 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
+// ===== Step 7: Live clock and number count-up animation =====
+document.addEventListener('DOMContentLoaded', () => {
+  // ---- Live clock ----
+  const clock = document.getElementById('liveClock');
+  if (clock) {
+    function updateClock() {
+      const now = new Date();
+      clock.textContent = now.toLocaleString('en-GB', {
+        weekday: 'long', day: '2-digit', month: 'long', year: 'numeric',
+        hour: '2-digit', minute: '2-digit', second: '2-digit'
+      });
+    }
+    updateClock();
+    setInterval(updateClock, 1000); // Update every second
+  }
+
+  // ---- Count-up animation for stat values ----
+  const statValues = document.querySelectorAll('.stat-value');
+  statValues.forEach(el => {
+    // Remove commas and parse the number
+    const raw = el.textContent.replace(/,/g, '');
+    const target = parseFloat(raw);
+    if (isNaN(target)) return;
+
+    const hasComma = el.textContent.includes(',');
+    const duration = 1000; // 1 second
+    const start = performance.now();
+
+    function frame(now) {
+      const progress = Math.min((now - start) / duration, 1);
+      // ease-out cubic easing function
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const value = Math.round(target * eased);
+      el.textContent = hasComma ? value.toLocaleString('en-US') : value;
+      if (progress < 1) requestAnimationFrame(frame);
+    }
+
+    el.textContent = '0';
+    requestAnimationFrame(frame);
+  });
+});
+
