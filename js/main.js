@@ -60,3 +60,70 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+
+// ===== Step 4: Form validation for complaint form =====
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.querySelector('form');
+  if (!form || !document.querySelector('.card form')) return;
+
+  const nameInput = form.querySelector('input[placeholder="Your name"]');
+  const idInput = form.querySelector('input[placeholder^="e.g. 2026"]');
+  const detailsInput = form.querySelector('textarea');
+  const checkbox = form.querySelector('input[type="checkbox"]');
+
+  function showError(input, message) {
+    clearError(input);
+    input.style.borderColor = 'var(--red)';
+    const msg = document.createElement('div');
+    msg.className = 'field-error';
+    msg.textContent = message;
+    input.parentElement.appendChild(msg);
+  }
+
+  function clearError(input) {
+    input.style.borderColor = '';
+    const old = input.parentElement.querySelector('.field-error');
+    if (old) old.remove();
+  }
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    let valid = true;
+
+    // Name validation
+    if (nameInput.value.trim() === '') {
+      showError(nameInput, 'Please enter your full name.');
+      valid = false;
+    } else {
+      clearError(nameInput);
+    }
+
+    // Student ID
+    if (idInput.value.trim() === '') {
+      showError(idInput, 'Please enter your Student ID.');
+      valid = false;
+    } else {
+      clearError(idInput);
+    }
+
+    // Details validation
+    if (detailsInput.value.trim().length < 20) {
+      showError(detailsInput, 'Description must be at least 20 characters.');
+      valid = false;
+    } else {
+      clearError(detailsInput);
+    }
+
+    // Checkbox validation
+    if (!checkbox.checked) {
+      alert('Please confirm that the information is accurate.');
+      valid = false;
+    }
+
+    if (valid) {
+      alert('Complaint submitted successfully!');
+      form.reset();
+    }
+  });
+});
+
