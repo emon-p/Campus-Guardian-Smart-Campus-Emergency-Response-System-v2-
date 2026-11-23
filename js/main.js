@@ -474,3 +474,43 @@ document.addEventListener('DOMContentLoaded', () => {
     alert('Profile updated.');
   });
 });
+// ===== Complaint page: progress bar and character counter =====
+document.addEventListener('DOMContentLoaded', () => {
+  const fill = document.getElementById('progressFill');
+  const text = document.getElementById('progressText');
+  const counter = document.getElementById('charCount');
+  const form = document.querySelector('.section-form');
+  if (!fill || !form) return;
+
+  const nameInput = form.querySelector('input[placeholder="Your name"]');
+  const idInput = form.querySelector('input[placeholder^="e.g. 2026"]');
+  const details = form.querySelector('textarea');
+  const confirmBox = form.querySelector('.confirm-box input');
+
+  function updateProgress() {
+    let done = 0;
+    if (nameInput.value.trim() !== '') done++;
+    if (idInput.value.trim() !== '') done++;
+    if (details.value.trim().length >= 20) done++;
+    if (confirmBox.checked) done++;
+
+    const pct = Math.round((done / 4) * 100);
+    fill.style.width = pct + '%';
+    text.textContent = pct + '%';
+  }
+
+  function updateCounter() {
+    const len = details.value.trim().length;
+    counter.textContent = len + ' / 20';
+    counter.style.color = len >= 20 ? 'var(--green)' : 'var(--muted)';
+  }
+
+  form.addEventListener('input', () => { updateProgress(); updateCounter(); });
+  form.addEventListener('change', updateProgress);
+  form.addEventListener('reset', () => {
+    setTimeout(() => { updateProgress(); updateCounter(); }, 0);
+  });
+
+  updateProgress();
+  updateCounter();
+});
