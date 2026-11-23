@@ -429,3 +429,118 @@ textarea.form-control { min-height: 120px; resize: vertical; }
   .grid-4, .form-row, .type-grid { grid-template-columns: 1fr; }
   .search { width: 100%; }
 }
+/* =========================================
+   Hover sidebar: hidden by default, opens on hover
+   ========================================= */
+.sidebar {
+  width: 250px;
+  transform: translateX(-100%);
+  transition: transform .3s ease;
+  z-index: 1000;
+  box-shadow: 4px 0 24px rgba(0, 0, 0, .25);
+  position: fixed;
+}
+.sidebar.open { transform: translateX(0); }
+
+.main { margin-left: 0; padding-left: 64px; }
+
+.menu-edge {
+  position: fixed; top: 0; bottom: 0; left: 0; width: 14px; z-index: 999;
+}
+
+
+.menu-icon {
+  position: fixed; top: 14px; left: 14px; z-index: 998;
+  width: 40px; height: 40px; border-radius: 12px; border: 0;
+  background: var(--sidebar); color: #fff; font-size: 18px; cursor: pointer;
+  display: grid; place-items: center;
+  box-shadow: 0 6px 16px rgba(16, 24, 40, .25);
+  transition: opacity .2s;
+}
+.menu-icon.hide { opacity: 0; pointer-events: none; }
+/* =========================================
+   Hover sidebar: hidden by default, opens on hover
+   ========================================= */
+.sidebar {
+  width: 250px;
+  transform: translateX(-100%);
+  transition: transform .3s ease;
+  z-index: 1000;
+  box-shadow: 4px 0 24px rgba(0, 0, 0, .25);
+  position: fixed;
+}
+.sidebar.open { transform: translateX(0); }
+
+.main { margin-left: 0; padding-left: 64px; }
+
+.menu-edge {
+  position: fixed; top: 0; bottom: 0; left: 0; width: 14px; z-index: 999;
+}
+
+.menu-icon {
+  position: fixed; top: 14px; left: 14px; z-index: 998;
+  width: 40px; height: 40px; border-radius: 12px; border: 0;
+  background: var(--sidebar); color: #fff; font-size: 18px; cursor: pointer;
+  display: grid; place-items: center;
+  box-shadow: 0 6px 16px rgba(16, 24, 40, .25);
+  transition: opacity .2s;
+}
+.menu-icon.hide { opacity: 0; pointer-events: none; }
+/* =========================================
+   Profile page
+   ========================================= */
+.profile-banner { padding: 0; overflow: hidden; }
+.banner-bg {
+  height: 120px;
+  background: linear-gradient(135deg, #1a6dff, #7c3aed);
+}
+.banner-body {
+  display: flex; align-items: flex-end; gap: 20px; flex-wrap: wrap;
+  padding: 0 26px 22px; margin-top: -40px;
+}
+.avatar.big {
+  width: 84px; height: 84px; font-size: 28px;
+  border: 4px solid #fff; box-shadow: var(--shadow);
+}
+.banner-info { flex: 1; min-width: 200px; }
+.banner-info h2 { font-size: 24px; font-weight: 800; }
+.banner-info .pill { margin-top: 6px; }
+.banner-stats { display: flex; gap: 26px; }
+.banner-stats div { text-align: center; }
+.banner-stats .stat-value { font-size: 22px; }
+.banner-stats .green { color: var(--green); }
+.banner-stats .red { color: var(--red); }
+.banner-stats span { font-size: 12px; color: var(--muted); }
+
+/* Tabs */
+.tabs { display: flex; gap: 8px; border-bottom: 1px solid var(--border); }
+.tab {
+  background: none; border: 0; padding: 12px 16px; cursor: pointer;
+  font-weight: 600; color: var(--muted); border-bottom: 3px solid transparent;
+}
+.tab.active { color: var(--primary); border-bottom-color: var(--primary); }
+.tab-panel { display: none; margin-top: 20px; }
+.tab-panel.active { display: block; }
+
+/* Privacy masking */
+.masked { filter: blur(5px); user-select: none; transition: filter .2s; }
+.masked.show { filter: none; user-select: text; }
+
+/* Edit modal */
+.modal-overlay {
+  position: fixed; inset: 0; background: rgba(16, 24, 40, .55);
+  display: none; align-items: center; justify-content: center; z-index: 1100;
+}
+.modal-overlay.show { display: flex; }
+.modal-box {
+  background: #fff; border-radius: 18px; padding: 28px;
+  width: 92%; max-width: 440px; box-shadow: 0 20px 50px rgba(0, 0, 0, .25);
+}
+.modal-box h2 { font-size: 22px; font-weight: 800; }
+.modal-actions { display: flex; gap: 12px; margin-top: 8px; }
+.modal-actions .btn { flex: 1; }
+
+@media print {
+  .sidebar, .menu-icon, .menu-edge, .topbar .actions, .tabs, .modal-overlay { display: none !important; }
+  .main { padding: 0 !important; }
+}

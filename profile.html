@@ -38,58 +38,128 @@
         <p>Your personal information and activity</p>
       </div>
       <div class="actions">
-        <button class="btn btn-ghost">✏️ Edit Profile</button>
+        <button class="btn btn-ghost" onclick="window.print()">🖨️ Print</button>
+        <button class="btn btn-primary" id="openEdit">✏️ Edit Profile</button>
       </div>
     </div>
 
-    <div class="grid grid-2-even">
-      <!-- Profile info -->
-      <div class="card">
-        <div class="profile-head" style="margin-bottom:22px">
-          <div class="avatar">S</div>
-          <div>
-            <h2>Sharif Ahmed</h2>
-            <p class="list-sub">Student · Computer Science · 3rd Year</p>
-            <span class="pill up" style="margin-top:6px">Active</span>
-          </div>
+    <!-- Banner + header -->
+    <div class="card profile-banner">
+      <div class="banner-bg"></div>
+      <div class="banner-body">
+        <div class="avatar big">EP</div>
+        <div class="banner-info">
+          <h2 data-field="name">Emon Prajapati</h2>
+          <p class="list-sub" data-field="meta">Student · Computer Science · 2nd Year</p>
+          <span class="pill up">● Active</span>
         </div>
-        <div class="info-row"><span>Student ID</span><b>2023-CSE-042</b></div>
-        <div class="info-row"><span>Email</span><b>sharif@campus.edu</b></div>
-        <div class="info-row"><span>Phone</span><b>+880 1XXX-XXXXXX</b></div>
-        <div class="info-row"><span>Hall / Residence</span><b>Block B, Room 204</b></div>
-        <div class="info-row"><span>Blood group</span><b>B+</b></div>
-        <div class="info-row"><span>Emergency contact</span><b>+880 1XXX-XXXXXX</b></div>
+        <div class="banner-stats">
+          <div><div class="stat-value" data-count="5">0</div><span>Total reports</span></div>
+          <div><div class="stat-value green" data-count="4">0</div><span>Resolved</span></div>
+          <div><div class="stat-value red" data-count="1">0</div><span>Open</span></div>
+        </div>
       </div>
+    </div>
 
-      <!-- Activity summary -->
-      <div>
-        <div class="grid grid-3" style="gap:14px; margin-bottom:20px">
-          <div class="card" style="text-align:center; padding:18px">
-            <div class="stat-value" style="font-size:24px">5</div>
-            <div class="stat-label">Total reports</div>
+    <!-- Tabs -->
+    <div class="tabs section">
+      <button class="tab active" data-tab="overview">Overview</button>
+      <button class="tab" data-tab="reports">My Reports</button>
+      <button class="tab" data-tab="activity">Activity</button>
+    </div>
+
+    <!-- Overview tab -->
+    <div class="tab-panel active" id="tab-overview">
+      <div class="grid grid-2-even">
+        <div class="card">
+          <div class="card-head"><h3>Personal Information</h3></div>
+          <div class="info-row"><span>Student ID</span><b data-field="sid">2023-CSE-001</b></div>
+          <div class="info-row"><span>Email</span><b data-field="email">student@campus.edu</b></div>
+          <div class="info-row">
+            <span>Phone</span>
+            <b><span data-field="phone" class="masked">+880 1XXX-XXXXXX</span></b>
           </div>
-          <div class="card" style="text-align:center; padding:18px">
-            <div class="stat-value" style="font-size:24px; color:var(--green)">4</div>
-            <div class="stat-label">Resolved</div>
+          <div class="info-row"><span>Hall / Residence</span><b data-field="hall">Block B, Room 204</b></div>
+          <div class="info-row">
+            <span>Blood group</span>
+            <b><span data-field="blood" class="masked">B+</span></b>
           </div>
-          <div class="card" style="text-align:center; padding:18px">
-            <div class="stat-value" style="font-size:24px; color:var(--red)">1</div>
-            <div class="stat-label">Open</div>
-          </div>
+          <div class="info-row"><span>Emergency contact</span><b data-field="emergency">+880 1XXX-XXXXXX</b></div>
+          <button class="btn btn-ghost btn-block" id="togglePrivacy" style="margin-top:14px">👁️ Show private details</button>
         </div>
 
         <div class="card">
-          <div class="card-head"><h3>Recent Activity</h3></div>
-          <div class="list">
-            <div class="list-item"><div class="list-main"><div class="list-icon" style="background:var(--red-soft)">🚨</div><div><div class="list-title">Submitted an emergency report</div><div class="list-sub">#CG-1021 · Main Gate</div></div></div><span class="status open">Open</span></div>
-            <div class="list-item"><div class="list-main"><div class="list-icon" style="background:var(--green-soft)">✅</div><div><div class="list-title">Complaint resolved</div><div class="list-sub">#CG-1018 · Canteen</div></div></div><span class="status resolved">Resolved</span></div>
-            <div class="list-item"><div class="list-main"><div class="list-icon" style="background:var(--primary-soft)">📝</div><div><div class="list-title">New complaint submitted</div><div class="list-sub">Facilities · Lab 3</div></div></div><span class="muted-time">2 days ago</span></div>
-          </div>
+          <div class="card-head"><h3>Account Status</h3></div>
+          <div class="info-row"><span>Account created</span><b>12 Jan, 2024</b></div>
+          <div class="info-row"><span>Last login</span><b>Today, 09:12 AM</b></div>
+          <div class="info-row"><span>Email verified</span><b><span class="status resolved">Yes</span></b></div>
+          <div class="info-row"><span>Safety alerts</span><b><span class="status resolved">On</span></b></div>
+          <div class="info-row"><span>Account type</span><b>Student</b></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Reports tab -->
+    <div class="tab-panel" id="tab-reports">
+      <div class="card">
+        <div class="card-head">
+          <div><h3>My Reports</h3><p>Reports you submitted</p></div>
+        </div>
+        <div class="table-wrap">
+          <table class="table">
+            <thead><tr><th>ID</th><th>Type</th><th>Location</th><th>Date</th><th>Status</th></tr></thead>
+            <tbody>
+              <tr><td>#CG-1021</td><td>🔫 Armed Robbery</td><td>Main Gate</td><td>31 Oct, 2026</td><td><span class="status open">Open</span></td></tr>
+              <tr><td>#CG-1018</td><td>🗣️ Bullying</td><td>Canteen</td><td>28 Oct, 2026</td><td><span class="status resolved">Resolved</span></td></tr>
+              <tr><td>#CG-1012</td><td>🧱 Vandalism</td><td>Library</td><td>20 Oct, 2026</td><td><span class="status resolved">Resolved</span></td></tr>
+              <tr><td>#CG-1007</td><td>🔥 Fire</td><td>Lab 3</td><td>12 Oct, 2026</td><td><span class="status resolved">Resolved</span></td></tr>
+              <tr><td>#CG-1003</td><td>🩹 Medical</td><td>Sports Ground</td><td>05 Oct, 2026</td><td><span class="status resolved">Resolved</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Activity tab -->
+    <div class="tab-panel" id="tab-activity">
+      <div class="card">
+        <div class="card-head"><div><h3>Recent Activity</h3><p>Your latest actions</p></div></div>
+        <div class="list">
+          <div class="list-item"><div class="list-main"><div class="list-icon" style="background:var(--red-soft)">🚨</div><div><div class="list-title">Submitted an emergency report</div><div class="list-sub">#CG-1021 · Main Gate</div></div></div><span class="muted-time">Today</span></div>
+          <div class="list-item"><div class="list-main"><div class="list-icon" style="background:var(--green-soft)">✅</div><div><div class="list-title">Complaint resolved</div><div class="list-sub">#CG-1018 · Canteen</div></div></div><span class="muted-time">3 days ago</span></div>
+          <div class="list-item"><div class="list-main"><div class="list-icon" style="background:var(--primary-soft)">📝</div><div><div class="list-title">Updated profile phone number</div><div class="list-sub">Settings</div></div></div><span class="muted-time">1 week ago</span></div>
         </div>
       </div>
     </div>
   </main>
 </div>
+
+<!-- Edit modal -->
+<div class="modal-overlay" id="editModal">
+  <div class="modal-box">
+    <h2>Edit Profile</h2>
+    <p class="list-sub" style="margin-bottom:18px">Update your contact details.</p>
+    <form id="editForm" novalidate>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" class="form-control" id="inEmail">
+      </div>
+      <div class="form-group">
+        <label>Phone</label>
+        <input type="text" class="form-control" id="inPhone" placeholder="+880 1XXX-XXXXXX">
+      </div>
+      <div class="form-group">
+        <label>Hall / Residence</label>
+        <input type="text" class="form-control" id="inHall">
+      </div>
+      <div class="modal-actions">
+        <button type="button" class="btn btn-ghost" id="cancelEdit">Cancel</button>
+        <button type="submit" class="btn btn-primary">Save</button>
+      </div>
+    </form>
+  </div>
+</div>
+
 <script src="js/main.js"></script>
 </body>
 </html>

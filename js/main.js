@@ -350,3 +350,127 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+
+// ===== Sidebar: hidden by default, opens on hover or ☰ click =====
+document.addEventListener('DOMContentLoaded', () => {
+  const sidebar = document.querySelector('.sidebar');
+  if (!sidebar) return;
+
+  // Create a small invisible edge on the left side to detect mouse hover
+  const edge = document.createElement('div');
+  edge.className = 'menu-edge';
+  document.body.appendChild(edge);
+
+  // small ☰ icon
+  const icon = document.createElement('button');
+  icon.className = 'menu-icon';
+  icon.setAttribute('aria-label', 'Open menu');
+  icon.textContent = '☰';
+  document.body.appendChild(icon);
+
+  let hideTimer = null;
+
+  function openMenu() {
+    clearTimeout(hideTimer);
+    sidebar.classList.add('open');
+    icon.classList.add('hide');
+  }
+
+  function closeMenu() {
+    sidebar.classList.remove('open');
+    icon.classList.remove('hide');
+  }
+
+  // Mouse leave delay to close menu
+  function closeLater() {
+    clearTimeout(hideTimer);
+    hideTimer = setTimeout(closeMenu, 300);
+  }
+
+  // Hover
+  edge.addEventListener('mouseenter', openMenu);
+  sidebar.addEventListener('mouseenter', openMenu);
+  sidebar.addEventListener('mouseleave', closeLater);
+
+  // Touch screen icon click to open
+  icon.addEventListener('click', (e) => {
+    e.stopPropagation();
+    openMenu();
+  });
+
+  // Sidebar outside click to close
+  document.addEventListener('click', (e) => {
+    if (!sidebar.contains(e.target) && e.target !== icon) closeMenu();
+  });
+
+  // Escape key to close sidebar
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeMenu();
+  });
+});
+// ===== Profile page: tabs, privacy toggle, edit modal =====
+document.addEventListener('DOMContentLoaded', () => {
+  const tabs = document.querySelectorAll('.tab');
+  if (tabs.length === 0) return; // Profile পেজ না হলে কিছু করবে না
+
+  // ---- Tabs ----
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+      tab.classList.add('active');
+      document.getElementById('tab-' + tab.dataset.tab).classList.add('active');
+    });
+  });
+
+  // ---- Privacy toggle ----
+  const privacyBtn = document.getElementById('togglePrivacy');
+  const masked = document.querySelectorAll('.masked');
+  let shown = false;
+  privacyBtn.addEventListener('click', () => {
+    shown = !shown;
+    masked.forEach(m => m.classList.toggle('show', shown));
+    privacyBtn.textContent = shown ? '🙈 Hide private details' : '👁️ Show private details';
+  });
+
+  // ---- Edit modal ----
+  const modal = document.getElementById('editModal');
+  const form = document.getElementById('editForm');
+  const inEmail = document.getElementById('inEmail');
+  const inPhone = document.getElementById('inPhone');
+  const inHall = document.getElementById('inHall');
+
+  const get = field => document.querySelector('[data-field="' + field + '"]');
+
+  document.getElementById('openEdit').addEventListener('click', () => {
+    inEmail.value = get('email').textContent;
+    inPhone.value = get('phone').textContent;
+    inHall.value = get('hall').textContent;
+    modal.classList.add('show');
+  });
+
+  function closeModal() { modal.classList.remove('show'); }
+  document.getElementById('cancelEdit').addEventListener('click', closeModal);
+  modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
+
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    const email = inEmail.value.trim();
+    const phone = inPhone.value.trim();
+
+    if (!/^\S+@\S+\.\S+$/.test(email)) {
+      alert('Please enter a valid email address.');
+      return;
+    }
+    if (!/^\+?[0-9\s-]{8,}$/.test(phone)) {
+      alert('Please enter a valid phone number.');
+      return;
+    }
+
+    get('email').textContent = email;
+    get('phone').textContent = phone;
+    get('hall').textContent = inHall.value.trim() || get('hall').textContent;
+    closeModal();
+    alert('Profile updated.');
+  });
+});
