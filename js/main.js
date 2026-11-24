@@ -472,6 +472,7 @@ document.addEventListener('DOMContentLoaded', () => {
     get('email').textContent = email;
     get('phone').textContent = phone;
     get('hall').textContent = inHall.value.trim() || get('hall').textContent;
+    get('emergency').textContent = inEmergency.value.trim() || get('emergency').textContent;
     closeModal();
     alert('Profile updated.');
   });
@@ -519,7 +520,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // ===== Emergency page: live location + Google Maps =====
 document.addEventListener('DOMContentLoaded', () => {
   const btn = document.getElementById('locBtn');
-  if (!btn) return; // Emergency পেজ না হলে কিছু করবে না
+  if (!btn) return; 
 
   const status = document.getElementById('locStatus');
   const coords = document.getElementById('locCoords');
@@ -554,7 +555,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         status.textContent = '✅ Location found (accuracy about ' + acc + ' m)';
         coords.textContent = 'Lat: ' + lat + ', Lng: ' + lng;
-        hidden.value = lat + ',' + lng; // রিপোর্ট জমার সময় ব্যবহার হবে
+        hidden.value = lat + ',' + lng; 
         btn.textContent = '🔄 Refresh location';
         showMap(lat, lng);
       },
