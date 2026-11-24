@@ -769,3 +769,260 @@ textarea.form-control { min-height: 120px; resize: vertical; }
 .map-frame {
   width: 100%; height: 210px; border: 0; border-radius: 12px; margin-bottom: 12px;
 }
+/* =========================================
+   Home page: landing design and animations
+   ========================================= */
+
+/* ---- Entrance animation (page load) ---- */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-12px); }
+}
+@keyframes ping {
+  0%   { transform: scale(.6); opacity: .7; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+
+.anim { opacity: 0; animation: fadeUp .8s cubic-bezier(.2, .7, .2, 1) forwards; }
+.anim.d1 { animation-delay: .1s; }
+.anim.d2 { animation-delay: .25s; }
+.anim.d3 { animation-delay: .4s; }
+.anim.d4 { animation-delay: .55s; }
+
+/* ---- Scroll reveal (triggered by JavaScript) ---- */
+.reveal {
+  opacity: 0; transform: translateY(32px);
+  transition: opacity .8s ease, transform .8s cubic-bezier(.2, .7, .2, 1);
+}
+.reveal.in { opacity: 1; transform: none; }
+.reveal.rd1 { transition-delay: .08s; }
+.reveal.rd2 { transition-delay: .16s; }
+.reveal.rd3 { transition-delay: .24s; }
+.reveal.rd4 { transition-delay: .32s; }
+
+/* ---- Hero ---- */
+.hero {
+  position: relative; overflow: hidden; margin-top: 4px;
+  background: linear-gradient(135deg, #101828 0%, #1a6dff 100%);
+  color: #fff; border-radius: 24px; padding: 48px 44px;
+  display: grid; grid-template-columns: 1.4fr 1fr; gap: 30px; align-items: center;
+  box-shadow: 0 20px 44px rgba(16, 24, 40, .25);
+}
+.hero::before {
+  content: ''; position: absolute; right: -120px; bottom: -140px;
+  width: 380px; height: 380px; border-radius: 50%;
+  background: rgba(255, 255, 255, .06);
+}
+.hero-text { position: relative; z-index: 1; }
+.eyebrow {
+  display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: .4px;
+  background: rgba(255, 255, 255, .14); padding: 6px 12px; border-radius: 999px;
+}
+.hero h2 { font-size: 42px; font-weight: 800; line-height: 1.15; margin: 16px 0 12px; }
+.grad {
+  background: linear-gradient(90deg, #ffffff, #93c5fd);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.hero p { font-size: 16px; opacity: .9; max-width: 520px; }
+.hero-cta { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 26px; }
+.hero-cta .btn { height: 48px; }
+.btn-glass {
+  background: rgba(255, 255, 255, .12); color: #fff;
+  border: 1px solid rgba(255, 255, 255, .28);
+}
+.btn-glass:hover { background: rgba(255, 255, 255, .2); }
+
+.hero-visual {
+  position: relative; z-index: 1; height: 260px;
+  display: grid; place-items: center;
+}
+.hero-visual .ring {
+  position: absolute; width: 200px; height: 200px; border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, .45);
+  animation: ping 2.6s ease-out infinite;
+}
+.hero-visual .r2 { animation-delay: 1.3s; }
+.shield {
+  position: relative; width: 150px; height: 150px; border-radius: 50%;
+  background: rgba(255, 255, 255, .16); backdrop-filter: blur(4px);
+  display: grid; place-items: center; font-size: 74px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, .2);
+  animation: float 4s ease-in-out infinite;
+}
+
+/* ---- Stats strip ---- */
+.stats-strip {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;
+  background: #fff; border: 1px solid var(--border); border-radius: 18px;
+  box-shadow: var(--shadow); margin-top: 22px; overflow: hidden;
+}
+.stat-item { padding: 22px 24px; text-align: center; border-right: 1px solid var(--border); }
+.stat-item:last-child { border-right: 0; }
+.stat-item .stat-value { font-size: 30px; }
+.stat-item span { color: var(--muted); font-size: 13px; font-weight: 500; }
+
+/* ---- Section heading ---- */
+.section-head { margin: 44px 0 18px; }
+.section-head h2 { font-size: 24px; font-weight: 800; }
+.section-head p { color: var(--muted); margin-top: 4px; }
+
+/* ---- Feature cards ---- */
+.feature-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+.feature-card {
+  display: block; background: #fff; border: 1px solid var(--border);
+  border-radius: 18px; padding: 24px; box-shadow: var(--shadow);
+  transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+}
+.feature-card:hover {
+  transform: translateY(-6px); border-color: #c7d7ff;
+  box-shadow: 0 18px 36px rgba(26, 109, 255, .14);
+}
+.feature-icon {
+  width: 52px; height: 52px; border-radius: 16px;
+  display: grid; place-items: center; font-size: 24px; margin-bottom: 16px;
+}
+.feature-card h3 { font-size: 17px; font-weight: 700; margin-bottom: 6px; }
+.feature-card p { color: var(--muted); font-size: 14px; }
+.feature-link { display: inline-block; margin-top: 14px; color: var(--primary); font-weight: 700; font-size: 14px; }
+
+/* ---- Campus section ---- */
+.campus-section {
+  display: grid; grid-template-columns: 1.5fr 1fr; gap: 20px; margin-top: 4px; align-items: start;
+}
+.legend-card { position: sticky; top: 24px; }
+.legend-list { display: flex; flex-direction: column; gap: 12px; font-size: 14px; }
+.legend-list > div { display: flex; align-items: center; gap: 10px; }
+.legend-list .dot-color { flex-shrink: 0; }
+
+/* ---- Contacts ---- */
+.contact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.contact-card {
+  display: flex; align-items: center; gap: 16px;
+  background: #fff; border: 1px solid var(--border); border-radius: 18px;
+  padding: 20px; box-shadow: var(--shadow); transition: transform .3s ease;
+}
+.contact-card:hover { transform: translateY(-4px); }
+.contact-card .feature-icon { margin-bottom: 0; flex-shrink: 0; }
+.contact-card h3 { font-size: 15px; font-weight: 700; }
+.contact-card p { color: var(--muted); font-size: 13px; }
+
+/* ---- Footer ---- */
+.site-footer {
+  display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+  margin-top: 48px; padding: 22px 0; border-top: 1px solid var(--border);
+  color: var(--muted); font-size: 13px;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 1100px) {
+  .hero { grid-template-columns: 1fr; padding: 36px 30px; }
+  .hero h2 { font-size: 34px; }
+  .hero-visual { height: 200px; }
+  .feature-grid { grid-template-columns: repeat(2, 1fr); }
+  .campus-section { grid-template-columns: 1fr; }
+  .legend-card { position: static; }
+  .stats-strip { grid-template-columns: repeat(2, 1fr); }
+  .stat-item:nth-child(2) { border-right: 0; }
+  .stat-item:nth-child(-n+2) { border-bottom: 1px solid var(--border); }
+}
+@media (max-width: 760px) {
+  .feature-grid, .contact-grid { grid-template-columns: 1fr; }
+  .hero h2 { font-size: 28px; }
+  .site-footer { flex-direction: column; }
+}
+
+/* ---- Respect users who prefer less motion ---- */
+@media (prefers-reduced-motion: reduce) {
+  .anim, .reveal, .shield, .hero-visual .ring { animation: none !important; transition: none !important; opacity: 1; transform: none; }
+}
+/* =========================================
+   Dashboard: animations and polish
+   ========================================= */
+
+/* ---- Animated property values (for donut) ---- */
+@property --a { syntax: '<percentage>'; inherits: false; initial-value: 0%; }
+@property --b { syntax: '<percentage>'; inherits: false; initial-value: 0%; }
+
+/* ---- Donut chart: fills in smoothly ---- */
+.donut-anim {
+  --a: 0%; --b: 0%;
+  background: conic-gradient(
+    var(--primary) 0 var(--a),
+    var(--green) var(--a) var(--b),
+    var(--yellow) var(--b) 100%
+  );
+  animation: donutIn 1.6s cubic-bezier(.2, .7, .2, 1) .3s forwards;
+}
+@keyframes donutIn {
+  to { --a: 45%; --b: 75%; }
+}
+
+/* ---- Bar chart: bars grow from the bottom, one after another ---- */
+.bar {
+  transform-origin: bottom;
+  animation: growUp .9s cubic-bezier(.2, .7, .2, 1) both;
+  animation-delay: calc(var(--i, 0) * .09s + .2s);
+}
+.bar-group { --i: 0; }
+@keyframes growUp {
+  from { transform: scaleY(0); }
+  to   { transform: scaleY(1); }
+}
+.bar-day, .bar-group .bar-wrap { transition: opacity .2s; }
+
+/* ---- Stat card: lift on hover and mini progress bar ---- */
+.stat-card { transition: transform .3s ease, box-shadow .3s ease; }
+.stat-card:hover { transform: translateY(-4px); box-shadow: 0 16px 32px rgba(16, 24, 40, .1); }
+.stat-card .stat-value { margin-top: 2px; }
+
+.mini {
+  height: 6px; background: #eef2f6; border-radius: 999px; overflow: hidden; margin: 14px 0 10px;
+}
+.mini span {
+  display: block; height: 100%; width: 0; border-radius: 999px;
+  animation: fillW 1.2s cubic-bezier(.2, .7, .2, 1) .4s forwards;
+}
+@keyframes fillW {
+  to { width: var(--w); }
+}
+
+/* ---- Pills pop in ---- */
+.pill { animation: popIn .5s ease both .5s; }
+@keyframes popIn {
+  from { opacity: 0; transform: scale(.8); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* ---- Table rows slide in one after another ---- */
+.table tbody tr {
+  animation: rowIn .5s ease both;
+  animation-delay: calc(var(--i, 0) * .08s + .3s);
+}
+@keyframes rowIn {
+  from { opacity: 0; transform: translateX(-12px); }
+  to   { opacity: 1; transform: none; }
+}
+.table tbody tr:hover { background: #fafbfc; }
+
+/* ---- Activity list: items fade in ---- */
+.list-item { animation: rowIn .5s ease both; }
+.list-item:nth-child(1) { animation-delay: .45s; }
+.list-item:nth-child(2) { animation-delay: .55s; }
+.list-item:nth-child(3) { animation-delay: .65s; }
+
+/* ---- Toolbar and cards ---- */
+.range-select { height: 44px; width: 160px; padding: 0 12px; }
+.card-link { transition: opacity .2s; }
+.card-link:hover { opacity: .7; }
+
+@media (prefers-reduced-motion: reduce) {
+  .donut-anim, .bar, .mini span, .pill, .table tbody tr, .list-item {
+    animation: none !important;
+  }
+  .donut-anim { --a: 45%; --b: 75%; }
+  .mini span { width: var(--w); }
+}

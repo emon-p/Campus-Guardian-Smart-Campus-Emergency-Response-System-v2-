@@ -9,13 +9,11 @@
 <body>
 <div class="app">
 
-  <!-- ===== Sidebar ===== -->
   <aside class="sidebar">
     <div class="brand">
       <div class="brand-logo">🛡️</div>
       <div class="brand-name">CampusGuardian<small>SMART CAMPUS PLATFORM</small></div>
     </div>
-
     <div class="nav-label">Menu</div>
     <ul class="nav">
       <li><a href="index.html" class="active"><span class="ico">🏠</span>Home</a></li>
@@ -25,136 +23,177 @@
       <li><a href="reports.html"><span class="ico">📋</span>Report List</a></li>
       <li><a href="profile.html"><span class="ico">👤</span>Student Profile</a></li>
     </ul>
-
     <div class="nav-label">Account</div>
     <ul class="nav">
       <li><a href="login.html"><span class="ico">🔐</span>Login</a></li>
       <li><a href="register.html"><span class="ico">✨</span>Register</a></li>
     </ul>
-
     <div class="sidebar-footer">© 2026 CampusGuardian</div>
   </aside>
 
-  <!-- ===== Main ===== -->
   <main class="main">
     <div class="topbar">
       <div>
-        <h1>Campus Safety 👋</h1>
-        <p>Campus safety, one click away</p>
+        <h1>Welcome back 👋</h1>
+        <p>Here is what is happening on campus today</p>
       </div>
       <div class="actions">
         <div class="search">🔍 <input type="text" placeholder="Search..."></div>
         <button class="panic-btn">🚨 Panic</button>
         <div class="icon-btn">🔔<span class="dot"></span></div>
-        <div class="avatar">S</div>
+        <div class="avatar">EP</div>
       </div>
     </div>
 
-    <!-- Safety panels -->
-    <div class="safety-grid">
-
-      <!-- Report an incident -->
-      <div class="card">
-        <div class="card-head"><h3>Report an Incident</h3></div>
-        <p class="list-sub" style="margin-bottom:14px">Report any campus incident for a quick response.</p>
-        <div class="list">
-          <a href="emergency.html" class="list-item">
-            <div class="list-main">
-              <div class="list-icon" style="background:var(--red-soft)">🔫</div>
-              <div><div class="list-title">Armed Robbery</div><div class="list-sub">Were you, or did you witness a robbery?</div></div>
-            </div>
-          </a>
-          <a href="complaint.html" class="list-item">
-            <div class="list-main">
-              <div class="list-icon" style="background:var(--yellow-soft)">🗣️</div>
-              <div><div class="list-title">Bullying</div><div class="list-sub">Were you verbally harassed?</div></div>
-            </div>
-          </a>
-          <a href="complaint.html" class="list-item">
-            <div class="list-main">
-              <div class="list-icon" style="background:var(--primary-soft)">🧱</div>
-              <div><div class="list-title">Vandalism</div><div class="list-sub">Did you witness any property damage?</div></div>
-            </div>
-          </a>
-        </div>
-        <div style="text-align:center; margin-top:18px; font-size:52px">📱</div>
-      </div>
-
-      <!-- Emergency alerts + navigation -->
-      <div>
-        <div class="card" style="margin-bottom:20px">
-          <div class="card-head"><h3>View Emergency Alerts</h3></div>
-          <p class="list-sub">Get real-time updates on critical situations.</p>
-          <div style="text-align:center; font-size:72px; margin-top:10px">🔔</div>
-        </div>
-
-        <div class="card">
-          <div class="card-head"><h3>Campus Navigation</h3></div>
-          <p class="list-sub">View the location of campus buildings and safety resources.</p>
-          <p class="list-sub">BGC Trust University Bangladesh campus layout.</p>
-
-<div class="campus-3d">
-  <div class="campus-title">BGC Trust University Bangladesh</div>
-  <div class="campus-plane">
-    <div class="campus-ground"></div>
-    <div class="campus-road road-h"></div>
-    <div class="campus-road road-v"></div>
-
-    <div class="b academic" data-name="Academic Block" data-info="Classrooms, labs and faculty offices."></div>
-    <div class="b library" data-name="Library" data-info="Study halls, books and online resources."></div>
-    <div class="b admin" data-name="Admin Building" data-info="Registrar, admissions and administration."></div>
-    <div class="b hostel" data-name="Hostel" data-info="Student residence. Contact the hall office for emergencies."></div>
-    <div class="b medical" data-name="Medical Center" data-info="First aid and medical support for students and staff."></div>
-
-    <div class="tree" style="left:118px; top:70px"></div>
-    <div class="tree" style="left:250px; top:100px"></div>
-    <div class="tree" style="left:260px; top:190px"></div>
-
-    <div class="gate"></div>
-  </div>
-</div>
-<div class="building-info" id="buildingInfo">
-  <b>Click a building</b>
-  <p>Select any building on the map to see its details.</p>
-</div>
-<div class="campus-legend">
-  <span>🏛 Academic Block</span>
-  <span>📚 Library</span>
-  <span>🏢 Admin</span>
-  <span>🏠 Hostel</span>
-  <span>🏥 Medical</span>
-  <span>🚪 Main Gate</span>
-</div>
-<p class="hint" style="margin-top:8px">Illustrative layout. Real building positions will be added later.</p>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-text">
+        <span class="eyebrow anim d1">● Smart Campus Platform</span>
+        <h2 class="anim d2">Keep our campus <span class="grad">safe, together.</span></h2>
+        <p class="anim d3">Report incidents, receive real-time alerts and reach campus security in seconds.</p>
+        <div class="hero-cta anim d4">
+          <a href="emergency.html" class="btn btn-danger">🚨 Report an emergency</a>
+          <a href="complaint.html" class="btn btn-glass">📝 File a complaint</a>
         </div>
       </div>
-      <!-- Safety resources -->
-      <div class="card">
-        <div class="card-head"><h3>Safety Resources</h3></div>
-        <p class="list-sub" style="margin-bottom:14px">Important safety information and contacts.</p>
-        <div class="list">
-          <div class="list-item">
-            <div class="list-main">
-              <div class="list-icon" style="background:var(--primary-soft)">📞</div>
-              <div><div class="list-title">Campus Control</div><div class="list-sub">Emergency assistance: +880 XXXX-XXXXXX</div></div>
-            </div>
-          </div>
-          <div class="list-item">
-            <div class="list-main">
-              <div class="list-icon" style="background:var(--green-soft)">📘</div>
-              <div><div class="list-title">Emergency Procedures</div><div class="list-sub">Learn how to respond in an emergency.</div></div>
-            </div>
-          </div>
-          <div class="list-item">
-            <div class="list-main">
-              <div class="list-icon" style="background:var(--yellow-soft)">🕵️</div>
-              <div><div class="list-title">Integrity Hotline</div><div class="list-sub">For improper or unethical conduct: +880 XXXX-XXXXXX</div></div>
-            </div>
+      <div class="hero-visual anim d3">
+        <span class="ring r1"></span>
+        <span class="ring r2"></span>
+        <div class="shield float">🛡️</div>
+      </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="stats-strip reveal">
+      <div class="stat-item">
+        <div class="stat-value">12,568</div>
+        <span>Active students</span>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value">24</div>
+        <span>Open incidents</span>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value">158</div>
+        <span>Resolved reports</span>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value">3</div>
+        <span>Live alerts</span>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section>
+      <div class="section-head reveal">
+        <h2>What you can do</h2>
+        <p>Everything you need to stay safe and get help quickly.</p>
+      </div>
+      <div class="feature-grid">
+        <a href="emergency.html" class="feature-card reveal rd1">
+          <div class="feature-icon" style="background:var(--red-soft)">🚨</div>
+          <h3>Emergency report</h3>
+          <p>Report robbery, fire or medical issues with your live location.</p>
+          <span class="feature-link">Open →</span>
+        </a>
+        <a href="complaint.html" class="feature-card reveal rd2">
+          <div class="feature-icon" style="background:var(--yellow-soft)">📝</div>
+          <h3>File a complaint</h3>
+          <p>Raise bullying, vandalism or facility issues with clear details.</p>
+          <span class="feature-link">Open →</span>
+        </a>
+        <a href="reports.html" class="feature-card reveal rd3">
+          <div class="feature-icon" style="background:var(--primary-soft)">📋</div>
+          <h3>Track reports</h3>
+          <p>See the status of every report you have submitted, in one place.</p>
+          <span class="feature-link">Open →</span>
+        </a>
+        <a href="dashboard.html" class="feature-card reveal rd4">
+          <div class="feature-icon" style="background:var(--green-soft)">📊</div>
+          <h3>Campus dashboard</h3>
+          <p>View live statistics and trends about safety on campus.</p>
+          <span class="feature-link">Open →</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- Campus map -->
+    <section class="campus-section">
+      <div class="card reveal">
+        <div class="card-head">
+          <div>
+            <h3>BGC Trust University Campus</h3>
+            <p>Illustrative layout. Click a building to see its details.</p>
           </div>
         </div>
-        <div style="text-align:center; margin-top:18px; font-size:52px">🤝</div>
+
+        <div class="campus-3d">
+          <div class="campus-title">BGC Trust University Bangladesh</div>
+          <div class="campus-plane">
+            <div class="campus-ground"></div>
+            <div class="campus-road road-h"></div>
+            <div class="campus-road road-v"></div>
+
+            <div class="b academic" data-name="Academic Block" data-info="Classrooms, labs and faculty offices."></div>
+            <div class="b library" data-name="Library" data-info="Study halls, books and online resources."></div>
+            <div class="b admin" data-name="Admin Building" data-info="Registrar, admissions and administration."></div>
+            <div class="b hostel" data-name="Hostel" data-info="Student residence. Contact the hall office for emergencies."></div>
+            <div class="b medical" data-name="Medical Center" data-info="First aid and medical support for students and staff."></div>
+
+            <div class="tree" style="left:118px; top:70px"></div>
+            <div class="tree" style="left:250px; top:100px"></div>
+            <div class="tree" style="left:260px; top:190px"></div>
+
+            <div class="gate"></div>
+          </div>
+        </div>
+
+        <div class="building-info" id="buildingInfo">
+          <b>Click a building</b>
+          <p>Select any building on the map to see its details.</p>
+        </div>
       </div>
-    </div>
+
+      <div class="card reveal rd2 legend-card">
+        <h3 class="help-title">Campus landmarks</h3>
+        <div class="legend-list">
+          <div><span class="dot-color" style="background:#fff; border:2px solid #aeb6c2"></span>🏛 Academic Block</div>
+          <div><span class="dot-color" style="background:#f2b97a"></span>📚 Library</div>
+          <div><span class="dot-color" style="background:#8fb3f0"></span>🏢 Admin Building</div>
+          <div><span class="dot-color" style="background:#f3a6b8"></span>🏠 Hostel</div>
+          <div><span class="dot-color" style="background:#f08a8a"></span>🏥 Medical Center</div>
+          <div><span class="dot-color" style="background:#334155"></span>🚪 Main Gate</div>
+        </div>
+        <p class="hint" style="margin-top:14px">Real building positions will be added later.</p>
+      </div>
+    </section>
+
+    <!-- Contacts -->
+    <section>
+      <div class="section-head reveal">
+        <h2>Emergency contacts</h2>
+        <p>Save these numbers. Use them when you need help fast.</p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-card reveal rd1">
+          <div class="feature-icon" style="background:var(--primary-soft)">📞</div>
+          <div><h3>Campus Control</h3><p>+880 XXXX-XXXXXX</p></div>
+        </div>
+        <div class="contact-card reveal rd2">
+          <div class="feature-icon" style="background:var(--green-soft)">📘</div>
+          <div><h3>Emergency Procedures</h3><p>Learn how to respond in an emergency</p></div>
+        </div>
+        <div class="contact-card reveal rd3">
+          <div class="feature-icon" style="background:var(--yellow-soft)">🕵️</div>
+          <div><h3>Integrity Hotline</h3><p>+880 XXXX-XXXXXX</p></div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <span>© 2026 CampusGuardian · BGC Trust University Bangladesh</span>
+      <span>Privacy Policy · Terms</span>
+    </footer>
   </main>
 </div>
 <script src="js/main.js"></script>

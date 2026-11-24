@@ -38,78 +38,87 @@
         <p id="liveClock">Loading time...</p>
       </div>
       <div class="actions">
-        <div class="search">🔍 <input type="text" placeholder="Search..."></div>
+        <select class="form-control range-select">
+          <option>Last 7 days</option>
+          <option>Last 30 days</option>
+          <option>This semester</option>
+        </select>
+        <button class="btn btn-primary">⬇ Export</button>
         <div class="icon-btn">🔔<span class="dot"></span></div>
-        <div class="avatar">S</div>
+        <div class="avatar">EP</div>
       </div>
     </div>
 
     <!-- Stat cards -->
     <div class="grid grid-4">
-      <div class="card">
+      <div class="card stat-card">
         <div class="stat-top">
-          <div class="stat-icon">🚨</div>
+          <div class="stat-icon" style="background:var(--red-soft)">🚨</div>
           <span class="pill down">↓ -12%</span>
         </div>
-        <div class="stat-label">Open Incidents</div>
+        <div class="stat-label">Open incidents</div>
         <div class="stat-value">24</div>
+        <div class="mini"><span style="--w:40%; background:var(--red)"></span></div>
         <div class="stat-foot">Compared to last week</div>
       </div>
-      <div class="card">
+      <div class="card stat-card">
         <div class="stat-top">
-          <div class="stat-icon">✅</div>
+          <div class="stat-icon" style="background:var(--green-soft)">✅</div>
           <span class="pill up">↑ +8%</span>
         </div>
-        <div class="stat-label">Resolved Reports</div>
+        <div class="stat-label">Resolved reports</div>
         <div class="stat-value">158</div>
+        <div class="mini"><span style="--w:78%; background:var(--green)"></span></div>
         <div class="stat-foot">This month</div>
       </div>
-      <div class="card">
+      <div class="card stat-card">
         <div class="stat-top">
-          <div class="stat-icon">👥</div>
+          <div class="stat-icon" style="background:var(--primary-soft)">👥</div>
           <span class="pill up">↑ +1.2%</span>
         </div>
-        <div class="stat-label">Active Students</div>
+        <div class="stat-label">Active students</div>
         <div class="stat-value">12,568</div>
+        <div class="mini"><span style="--w:90%; background:var(--primary)"></span></div>
         <div class="stat-foot">+100 this month</div>
       </div>
-      <div class="card">
+      <div class="card stat-card">
         <div class="stat-top">
-          <div class="stat-icon">🔔</div>
+          <div class="stat-icon" style="background:var(--yellow-soft)">🔔</div>
           <span class="pill info">Live</span>
         </div>
-        <div class="stat-label">Active Alerts</div>
+        <div class="stat-label">Active alerts</div>
         <div class="stat-value">3</div>
+        <div class="mini"><span style="--w:15%; background:var(--yellow)"></span></div>
         <div class="stat-foot">Emergency warnings</div>
       </div>
     </div>
 
     <!-- Charts row -->
     <div class="grid grid-2 section">
-      <div class="card">
+      <div class="card reveal">
         <div class="card-head">
-          <div><h3>Weekly Reports</h3><p>Number of incidents per day</p></div>
-          <span class="pill info">This Week</span>
+          <div><h3>Weekly reports</h3><p>Reported vs resolved, per day</p></div>
+          <span class="pill info">This week</span>
         </div>
         <div class="bars">
-          <div class="bar-group"><div class="bar-wrap"><div class="bar blue" style="height:60%"></div><div class="bar green" style="height:40%"></div></div><div class="bar-day">Sat</div></div>
-          <div class="bar-group"><div class="bar-wrap"><div class="bar blue" style="height:45%"></div><div class="bar green" style="height:30%"></div></div><div class="bar-day">Sun</div></div>
-          <div class="bar-group"><div class="bar-wrap"><div class="bar blue" style="height:80%"></div><div class="bar green" style="height:55%"></div></div><div class="bar-day active">Mon</div></div>
-          <div class="bar-group"><div class="bar-wrap"><div class="bar blue" style="height:65%"></div><div class="bar green" style="height:48%"></div></div><div class="bar-day">Tue</div></div>
-          <div class="bar-group"><div class="bar-wrap"><div class="bar blue" style="height:35%"></div><div class="bar green" style="height:25%"></div></div><div class="bar-day">Wed</div></div>
+          <div class="bar-group" style="--i:0"><div class="bar-wrap"><div class="bar blue" style="height:60%"></div><div class="bar green" style="height:40%"></div></div><div class="bar-day">Sat</div></div>
+          <div class="bar-group" style="--i:1"><div class="bar-wrap"><div class="bar blue" style="height:45%"></div><div class="bar green" style="height:30%"></div></div><div class="bar-day">Sun</div></div>
+          <div class="bar-group" style="--i:2"><div class="bar-wrap"><div class="bar blue" style="height:80%"></div><div class="bar green" style="height:55%"></div></div><div class="bar-day active">Mon</div></div>
+          <div class="bar-group" style="--i:3"><div class="bar-wrap"><div class="bar blue" style="height:65%"></div><div class="bar green" style="height:48%"></div></div><div class="bar-day">Tue</div></div>
+          <div class="bar-group" style="--i:4"><div class="bar-wrap"><div class="bar blue" style="height:35%"></div><div class="bar green" style="height:25%"></div></div><div class="bar-day">Wed</div></div>
         </div>
-        <div class="legend" style="flex-direction:row; margin-top:12px; gap:20px">
+        <div class="legend" style="flex-direction:row; margin-top:14px; gap:22px">
           <div class="legend-item"><div class="l"><span class="dot-color" style="background:var(--primary)"></span>Reported</div></div>
           <div class="legend-item"><div class="l"><span class="dot-color" style="background:var(--green)"></span>Resolved</div></div>
         </div>
       </div>
 
-      <div class="card">
+      <div class="card reveal rd1">
         <div class="card-head">
-          <div><h3>Incident Types</h3><p>Breakdown by type</p></div>
+          <div><h3>Incident types</h3><p>Share of all reports</p></div>
         </div>
         <div class="donut-wrap">
-          <div class="donut" style="background: conic-gradient(var(--primary) 0 45%, var(--green) 45% 75%, var(--yellow) 75% 100%)">
+          <div class="donut donut-anim">
             <div class="donut-inner"><div><b>24</b><span>Total</span></div></div>
           </div>
           <div class="legend">
@@ -123,26 +132,26 @@
 
     <!-- Table + activity -->
     <div class="grid grid-2 section">
-      <div class="card">
+      <div class="card reveal">
         <div class="card-head">
-          <div><h3>Recent Reports</h3><p>Latest submitted reports</p></div>
+          <div><h3>Recent reports</h3><p>Latest submitted reports</p></div>
           <a href="reports.html" class="card-link">View all →</a>
         </div>
         <div class="table-wrap">
           <table class="table">
             <thead><tr><th>ID</th><th>Type</th><th>Location</th><th>Status</th></tr></thead>
             <tbody>
-              <tr><td>#CG-1021</td><td>Armed Robbery</td><td>Main Gate</td><td><span class="status open">Open</span></td></tr>
-              <tr><td>#CG-1020</td><td>Bullying</td><td>Library</td><td><span class="status progress">In Progress</span></td></tr>
-              <tr><td>#CG-1019</td><td>Vandalism</td><td>Block B</td><td><span class="status resolved">Resolved</span></td></tr>
-              <tr><td>#CG-1018</td><td>Bullying</td><td>Canteen</td><td><span class="status resolved">Resolved</span></td></tr>
+              <tr style="--i:0"><td class="rid">#CG-1021</td><td>Armed Robbery</td><td>Main Gate</td><td><span class="status open">Open</span></td></tr>
+              <tr style="--i:1"><td class="rid">#CG-1020</td><td>Bullying</td><td>Library</td><td><span class="status progress">In Progress</span></td></tr>
+              <tr style="--i:2"><td class="rid">#CG-1019</td><td>Vandalism</td><td>Block B</td><td><span class="status resolved">Resolved</span></td></tr>
+              <tr style="--i:3"><td class="rid">#CG-1018</td><td>Bullying</td><td>Canteen</td><td><span class="status resolved">Resolved</span></td></tr>
             </tbody>
           </table>
         </div>
       </div>
 
-      <div class="card">
-        <div class="card-head"><div><h3>Recent Activity</h3><p>Latest actions</p></div></div>
+      <div class="card reveal rd1">
+        <div class="card-head"><div><h3>Recent activity</h3><p>Latest actions on campus</p></div></div>
         <div class="list">
           <div class="list-item">
             <div class="list-main"><div class="list-icon" style="background:var(--red-soft)">🚨</div><div><div class="list-title">New emergency report</div><div class="list-sub">Main Gate</div></div></div>
