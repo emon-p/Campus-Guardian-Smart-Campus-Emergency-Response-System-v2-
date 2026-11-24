@@ -439,6 +439,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const inEmail = document.getElementById('inEmail');
   const inPhone = document.getElementById('inPhone');
   const inHall = document.getElementById('inHall');
+  const inEmergency = document.getElementById('inEmergency');
 
   const get = field => document.querySelector('[data-field="' + field + '"]');
 
@@ -446,6 +447,7 @@ document.addEventListener('DOMContentLoaded', () => {
     inEmail.value = get('email').textContent;
     inPhone.value = get('phone').textContent;
     inHall.value = get('hall').textContent;
+    inEmergency.value = get('emergency').textContent;
     modal.classList.add('show');
   });
 
@@ -513,4 +515,59 @@ document.addEventListener('DOMContentLoaded', () => {
 
   updateProgress();
   updateCounter();
+});
+// ===== Emergency page: live location + Google Maps =====
+document.addEventListener('DOMContentLoaded', () => {
+  const btn = document.getElementById('locBtn');
+  if (!btn) return; // Emergency পেজ না হলে কিছু করবে না
+
+  const status = document.getElementById('locStatus');
+  const coords = document.getElementById('locCoords');
+  const hidden = document.getElementById('locValue');
+  const frame = document.getElementById('mapFrame');
+  const placeholder = document.getElementById('mapPlaceholder');
+  const link = document.getElementById('mapLink');
+
+  function showMap(lat, lng) {
+    frame.src = `https://maps.google.com/maps?q=${lat},${lng}&z=17&output=embed`;
+    frame.hidden = false;
+    placeholder.hidden = true;
+    link.href = `https://www.google.com/maps?q=${lat},${lng}`;
+    link.hidden = false;
+  }
+
+  btn.addEventListener('click', () => {
+    console.log('Location button clicked');
+
+    if (!navigator.geolocation) {
+      status.textContent = '❌ Your browser does not support location.';
+      return;
+    }
+
+    status.textContent = 'Getting your location...';
+
+    navigator.geolocation.getCurrentPosition(
+      (pos) => {
+        const lat = pos.coords.latitude.toFixed(5);
+        const lng = pos.coords.longitude.toFixed(5);
+        const acc = Math.round(pos.coords.accuracy);
+
+        status.textContent = '✅ Location found (accuracy about ' + acc + ' m)';
+        coords.textContent = 'Lat: ' + lat + ', Lng: ' + lng;
+        hidden.value = lat + ',' + lng; // রিপোর্ট জমার সময় ব্যবহার হবে
+        btn.textContent = '🔄 Refresh location';
+        showMap(lat, lng);
+      },
+      (err) => {
+        console.log('Geolocation error:', err);
+        const reasons = {
+          1: 'Permission denied. Click the lock icon in the address bar and allow location.',
+          2: 'Location unavailable. Check that GPS or Wi-Fi location is on.',
+          3: 'Timed out. Try again.'
+        };
+        status.textContent = '❌ ' + (reasons[err.code] || 'Unknown error.');
+      },
+      { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 }
+    );
+  });
 });

@@ -35,75 +35,106 @@
     <div class="topbar">
       <div>
         <h1>Emergency Report</h1>
-        <p>Report urgent incidents quickly</p>
+        <p>Report an urgent incident. Security is notified right away.</p>
       </div>
       <div class="actions">
-        <div class="avatar">S</div>
+        <div class="avatar">EP</div>
       </div>
     </div>
 
-    <!-- Hero -->
+    <!-- SOS hero -->
     <div class="emergency-hero">
-      <div>
-        <h2>Are you in an emergency?</h2>
-        <p>Click the SOS button to instantly alert the security team.</p>
-        <button class="btn" style="background:#fff; color:var(--red); margin-top:16px; height:48px">🚨 Send SOS</button>
+      <div class="hero-text">
+        <span class="hero-tag">● Live response</span>
+        <h2>Are you in danger right now?</h2>
+        <p>Press SOS to alert campus security instantly. Your location will be shared if you allow it.</p>
+        <button class="btn sos-btn" type="button">🚨 Send SOS</button>
       </div>
-      <div class="bell-big">🔔</div>
+      <div class="hero-icon">🛡️</div>
     </div>
 
-    <!-- Form -->
-    <div class="grid grid-2 section">
-      <div class="card">
-        <div class="card-head"><div><h3>Choose incident type</h3><p>Select one option</p></div></div>
+    <div class="emergency-layout">
+
+      <!-- Left: report form -->
+      <div class="card report-card">
+
+        <div class="block-title"><span class="step-num">1</span> Choose the incident type</div>
         <div class="type-grid">
-          <button class="type-card selected"><div class="t-icon">🔫</div><b>Armed Robbery</b><span>Robbery or theft</span></button>
-          <button class="type-card"><div class="t-icon">🗣️</div><b>Bullying</b><span>Harassment</span></button>
-          <button class="type-card"><div class="t-icon">🧱</div><b>Vandalism</b><span>Property damage</span></button>
-          <button class="type-card"><div class="t-icon">🔥</div><b>Fire</b><span>Fire outbreak</span></button>
-          <button class="type-card"><div class="t-icon">🩹</div><b>Medical</b><span>Illness or injury</span></button>
-          <button class="type-card"><div class="t-icon">❓</div><b>Other</b><span>Anything else</span></button>
+          <button class="type-card selected" type="button"><div class="t-icon">🔫</div><b>Armed Robbery</b><span>Robbery or theft</span></button>
+          <button class="type-card" type="button"><div class="t-icon">🗣️</div><b>Bullying</b><span>Harassment</span></button>
+          <button class="type-card" type="button"><div class="t-icon">🧱</div><b>Vandalism</b><span>Property damage</span></button>
+          <button class="type-card" type="button"><div class="t-icon">🔥</div><b>Fire</b><span>Fire outbreak</span></button>
+          <button class="type-card" type="button"><div class="t-icon">🩹</div><b>Medical</b><span>Illness or injury</span></button>
+          <button class="type-card" type="button"><div class="t-icon">❓</div><b>Other</b><span>Anything else</span></button>
         </div>
 
-        <div class="section">
-          <div class="form-group">
-            <label>Incident description</label>
-            <textarea class="form-control" placeholder="Briefly describe what happened..."></textarea>
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label>Location</label>
-              <input type="text" class="form-control" placeholder="e.g. Main Gate, Library">
-            </div>
-            <div class="form-group">
-              <label>Time</label>
-              <input type="datetime-local" class="form-control">
-            </div>
-          </div>
-          <div class="form-group">
-            <label>Photo/Video (optional)</label>
-            <input type="file" class="form-control">
-          </div>
-          <label class="check" style="margin-bottom:18px"><input type="checkbox"> Keep my name anonymous</label>
-          <button class="btn btn-danger btn-block">🚨 Submit Report</button>
+        <div class="block-title"><span class="step-num">2</span> Describe what happened</div>
+        <div class="form-group">
+          <label>Incident description</label>
+          <textarea class="form-control" placeholder="Briefly describe what is happening..."></textarea>
         </div>
+
+        <div class="block-title"><span class="step-num">3</span> Where and when</div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Location</label>
+            <input type="text" class="form-control" placeholder="e.g. Main Gate, Library">
+          </div>
+          <div class="form-group">
+            <label>Time <span class="opt">(optional)</span></label>
+            <input type="datetime-local" class="form-control">
+          </div>
+        </div>
+
+        <div class="block-title"><span class="step-num">4</span> Add evidence <span class="opt">(optional)</span></div>
+        <div class="form-group">
+          <input type="file" class="form-control">
+          <span class="hint">Photo or short video, up to 10 MB.</span>
+        </div>
+
+        <label class="confirm-box">
+          <input type="checkbox">
+          <span>Keep my name anonymous in the report.</span>
+        </label>
+
+        <button class="btn btn-danger btn-block submit-btn" type="button">🚨 Submit report</button>
       </div>
 
-      <!-- Side info -->
-      <div>
-        <div class="card" style="margin-bottom:20px">
-          <div class="card-head"><h3>Emergency Numbers</h3></div>
-          <div class="list">
-            <div class="list-item"><div class="list-main"><div class="list-icon" style="background:var(--primary-soft)">📞</div><div><div class="list-title">Campus Control</div><div class="list-sub">+880 XXXX-XXXXXX</div></div></div></div>
-            <div class="list-item"><div class="list-main"><div class="list-icon" style="background:var(--red-soft)">🚑</div><div><div class="list-title">Medical Center</div><div class="list-sub">+880 XXXX-XXXXXX</div></div></div></div>
-          </div>
-        </div>
+      <!-- Right: help and location -->
+      <aside class="help-col">
+
         <div class="card">
-          <div class="card-head"><h3>Your Location</h3></div>
-          <div class="map-placeholder">📍</div>
-          <p class="hint" style="margin-top:10px">Map integration will be added in a later step.</p>
+  <div class="card-head"><h3>Your live location</h3></div>
+
+  <iframe id="mapFrame" class="map-frame" hidden loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  <div class="loc-map" id="mapPlaceholder">📍</div>
+
+  <div class="live-loc">
+    <div class="live-status" id="locStatus">Location not fetched yet.</div>
+    <div class="live-coords" id="locCoords"></div>
+    <button class="btn btn-ghost btn-block" id="locBtn" type="button" style="margin-top:12px">📍 Get my location</button>
+    <a id="mapLink" class="btn btn-primary btn-block" target="_blank" rel="noopener" hidden style="margin-top:10px">🗺️ Open in Google Maps</a>
+    <input type="hidden" id="locValue">
+  </div>
+</div>
+
+        <div class="card" style="margin-top:20px">
+          <div class="card-head"><h3>Emergency numbers</h3></div>
+          <div class="contact-row"><div class="contact-ico" style="background:var(--primary-soft)">📞</div><span>Campus Control</span><b>+880 XXXX-XXXXXX</b></div>
+          <div class="contact-row"><div class="contact-ico" style="background:var(--red-soft)">🚑</div><span>Medical Center</span><b>+880 XXXX-XXXXXX</b></div>
+          <div class="contact-row"><div class="contact-ico" style="background:var(--yellow-soft)">🚓</div><span>Security Desk</span><b>+880 XXXX-XXXXXX</b></div>
         </div>
-      </div>
+
+        <div class="card" style="margin-top:20px">
+          <div class="card-head"><h3>If you are in danger</h3></div>
+          <ul class="tip-list">
+            <li>Move to a safe place first.</li>
+            <li>Call the campus control number if you can.</li>
+            <li>Send SOS only when you are safe to do so.</li>
+          </ul>
+        </div>
+
+      </aside>
     </div>
   </main>
 </div>

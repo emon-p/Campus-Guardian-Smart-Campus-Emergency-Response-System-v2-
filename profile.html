@@ -73,18 +73,18 @@
       <div class="grid grid-2-even">
         <div class="card">
           <div class="card-head"><h3>Personal Information</h3></div>
-          <div class="info-row"><span>Student ID</span><b data-field="sid">2023-CSE-001</b></div>
+          <div class="info-row"><span>Student ID</span><b data-field="sid">250244006</b></div>
           <div class="info-row"><span>Email</span><b data-field="email">student@campus.edu</b></div>
           <div class="info-row">
             <span>Phone</span>
-            <b><span data-field="phone" class="masked">+880 1XXX-XXXXXX</span></b>
+            <b><span data-field="phone" class="masked">+880 1997XXXXX</span></b>
           </div>
           <div class="info-row"><span>Hall / Residence</span><b data-field="hall">Block B, Room 204</b></div>
           <div class="info-row">
             <span>Blood group</span>
             <b><span data-field="blood" class="masked">B+</span></b>
           </div>
-          <div class="info-row"><span>Emergency contact</span><b data-field="emergency">+880 1XXX-XXXXXX</b></div>
+          <div class="info-row"><span>Emergency contact</span><span data-field="emergency" class="masked">+880 1997XXXXX</span></div>
           <button class="btn btn-ghost btn-block" id="togglePrivacy" style="margin-top:14px">👁️ Show private details</button>
         </div>
 
@@ -151,6 +151,10 @@
       <div class="form-group">
         <label>Hall / Residence</label>
         <input type="text" class="form-control" id="inHall">
+      </div>
+      <div class="form-group">
+        <label>Emergency</label>
+        <input type="text" class="form-control" id="inEmergency" placeholder="+880 1XXX-XXXXXX">
       </div>
       <div class="modal-actions">
         <button type="button" class="btn btn-ghost" id="cancelEdit">Cancel</button>
